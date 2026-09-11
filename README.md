@@ -4,7 +4,7 @@ Website tĩnh cho **Công ty cổ phần Nano Power**, xây dựng với Astro 7
 Nội dung lưu trong Markdown/YAML, quản lý qua [Pages CMS](https://pagescms.org).  
 Deploy tự động lên GitHub Pages qua GitHub Actions.
 
-**Live site:** https://phamduckhanh.github.io/nanopower-site/
+**Live site:** https://pisa-jsc.github.io/nanopower-site/
 
 ---
 
@@ -83,6 +83,7 @@ Hiện tại dùng `mailto:` fallback (mở email client). Để nhận email qu
 
 ### Bước 1: Tạo repo tại https://github.com/new
 - Tên: `nanopower-site` | Public | Không khởi tạo README
+- **Tổ chức:** PISA-JSC
 
 ### Bước 2: Push code
 
@@ -90,7 +91,7 @@ Hiện tại dùng `mailto:` fallback (mở email client). Để nhận email qu
 git add .
 git commit -m "feat: initial website setup"
 git branch -M main
-git remote add origin https://github.com/phamduckhanh/nanopower-site.git
+git remote add origin git@github.com:PISA-JSC/nanopower-site.git
 git push -u origin main
 ```
 
