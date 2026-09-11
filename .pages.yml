@@ -1,0 +1,228 @@
+media:
+  input: public/images
+  output: /nanopower-site/images
+
+content:
+  # ─── BÀI VIẾT ─────────────────────────────────────────────
+  - name: posts
+    label: Bài viết
+    type: collection
+    path: src/content/posts
+    filename: "{fields.title}"
+    view:
+      fields: [title, date, category, draft]
+      default_order:
+        field: date
+        direction: desc
+    fields:
+      - name: title
+        label: Tiêu đề
+        type: string
+        required: true
+      - name: description
+        label: Mô tả ngắn (hiện dưới tiêu đề và trong SEO)
+        type: text
+        required: true
+      - name: date
+        label: Ngày đăng
+        type: date
+        required: true
+        options:
+          format: "YYYY-MM-DD"
+      - name: cover
+        label: Ảnh đại diện (1200×630)
+        type: image
+        required: true
+      - name: category
+        label: Chuyên mục
+        type: select
+        required: true
+        options:
+          values:
+            - name: tin-cong-ty
+              label: Tin công ty
+            - name: kien-thuc
+              label: Kiến thức
+            - name: san-pham
+              label: Sản phẩm
+            - name: tuyen-dung
+              label: Tuyển dụng
+      - name: author
+        label: Tác giả
+        type: string
+        default: "Nano Power"
+      - name: draft
+        label: Bản nháp (không hiển thị lên web)
+        type: boolean
+        default: false
+      - name: featured
+        label: Nổi bật (hiển thị ưu tiên)
+        type: boolean
+        default: false
+      - name: body
+        label: Nội dung bài viết
+        type: rich-text
+
+  # ─── GIẢI PHÁP ─────────────────────────────────────────────
+  - name: solutions
+    label: Giải pháp
+    type: collection
+    path: src/content/solutions
+    view:
+      fields: [title, order, draft]
+      default_order:
+        field: order
+        direction: asc
+    fields:
+      - name: title
+        label: Tên giải pháp
+        type: string
+        required: true
+      - name: summary
+        label: Mô tả ngắn (hiện trên thẻ card)
+        type: text
+        required: true
+      - name: icon
+        label: Biểu tượng (emoji)
+        type: string
+        required: true
+      - name: order
+        label: Thứ tự hiển thị (số nhỏ = hiện trước)
+        type: number
+        required: true
+      - name: cover
+        label: Ảnh đại diện (1200×630)
+        type: image
+        required: true
+      - name: features
+        label: Danh sách tính năng nổi bật
+        type: select
+        options:
+          multiple: true
+          values: []
+      - name: draft
+        label: Bản nháp (không hiển thị)
+        type: boolean
+        default: false
+      - name: body
+        label: Nội dung chi tiết
+        type: rich-text
+
+  # ─── DỰ ÁN ─────────────────────────────────────────────────
+  - name: projects
+    label: Dự án tiêu biểu
+    type: collection
+    path: src/content/projects
+    view:
+      fields: [title, industry, year, draft]
+      default_order:
+        field: year
+        direction: desc
+    fields:
+      - name: title
+        label: Tên dự án
+        type: string
+        required: true
+      - name: client
+        label: Khách hàng (có thể dùng tên mã như "Khách hàng A")
+        type: string
+        required: true
+      - name: industry
+        label: Lĩnh vực / Ngành
+        type: string
+        required: true
+      - name: summary
+        label: Tóm tắt dự án
+        type: text
+        required: true
+      - name: cover
+        label: Ảnh đại diện (1200×630)
+        type: image
+        required: true
+      - name: year
+        label: Năm triển khai
+        type: number
+        required: true
+      - name: results
+        label: Kết quả đạt được (mỗi dòng một kết quả)
+        type: select
+        options:
+          multiple: true
+          values: []
+      - name: draft
+        label: Bản nháp (không hiển thị)
+        type: boolean
+        default: false
+      - name: body
+        label: Nội dung chi tiết
+        type: rich-text
+
+  # ─── CÀI ĐẶT TRANG ─────────────────────────────────────────
+  - name: site-config
+    label: Thông tin công ty (site.yml)
+    type: file
+    path: src/data/site.yml
+    fields:
+      - name: company_name
+        label: Tên công ty đầy đủ
+        type: string
+      - name: company_short
+        label: Tên ngắn (hiện trên giao diện)
+        type: string
+      - name: tagline
+        label: Slogan / Tagline
+        type: string
+      - name: founded_year
+        label: Năm thành lập
+        type: number
+      - name: tax_code
+        label: Mã số thuế
+        type: string
+      - name: address
+        label: Địa chỉ đầy đủ
+        type: string
+      - name: phone
+        label: Số điện thoại
+        type: string
+      - name: email
+        label: Email liên hệ
+        type: string
+      - name: working_hours
+        label: Giờ làm việc
+        type: string
+      - name: map_embed_url
+        label: URL nhúng Google Maps
+        type: string
+
+  # ─── TRANG CHỦ ─────────────────────────────────────────────
+  - name: home-config
+    label: Nội dung trang chủ (home.yml)
+    type: file
+    path: src/data/home.yml
+    fields:
+      - name: hero
+        label: Banner chính (Hero)
+        type: object
+        fields:
+          - name: title
+            label: Tiêu đề lớn
+            type: string
+          - name: subtitle
+            label: Mô tả phụ
+            type: text
+          - name: cta_label
+            label: Nút chính (text)
+            type: string
+          - name: cta_url
+            label: Nút chính (link)
+            type: string
+          - name: secondary_cta_label
+            label: Nút phụ (text)
+            type: string
+          - name: secondary_cta_url
+            label: Nút phụ (link)
+            type: string
+
+settings:
+  commit:
+    identity: user

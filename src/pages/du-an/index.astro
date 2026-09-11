@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import CTABand from '../../components/CTABand.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { url } from '../../utils/url';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects', p => !p.data.draft))
+  .sort((a, b) => b.data.year - a.data.year);
+---
+
+<Base
+  title="Dự án tiêu biểu"
+  description="Khám phá các dự án tự động hóa, IoT và phần mềm mà Nano Power đã triển khai thành công."
+>
+  <div class="bg-brand-50 border-b border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <Breadcrumb items={[
+        { label: 'Trang chủ', href: url('/') },
+        { label: 'Dự án' },
+      ]} />
+    </div>
+  </div>
+
+  <section class="bg-brand-800 text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold mb-4">Dự án tiêu biểu</h1>
+      <p class="text-brand-100 text-xl leading-relaxed">
+        Những case study chứng minh năng lực và giá trị chúng tôi mang lại cho khách hàng.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        {projects.map(project => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    title="Bạn có dự án cần triển khai?"
+    subtitle="Hãy chia sẻ bài toán với chúng tôi. Nano Power sẽ phân tích và đề xuất giải pháp phù hợp nhất."
+  />
+</Base>

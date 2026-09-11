@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import SolutionCard from '../components/SolutionCard.astro';
+import PostCard from '../components/PostCard.astro';
+import StatsBand from '../components/StatsBand.astro';
+import CTABand from '../components/CTABand.astro';
+import { url } from '../utils/url';
+import { loadYaml, type HomeData } from '../utils/data';
+import { getCollection } from 'astro:content';
+
+const home = loadYaml<HomeData>('home.yml');
+
+const solutions = (await getCollection('solutions', s => !s.data.draft))
+  .sort((a, b) => a.data.order - b.data.order);
+
+const featuredPosts = (await getCollection('posts', p => !p.data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<Base title="Nano Power">
+  <Hero />
+
+  <!-- Solutions section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title="Lĩnh vực giải pháp"
+        subtitle="Chúng tôi cung cấp giải pháp toàn diện từ phần cứng đến phần mềm, giúp doanh nghiệp vận hành thông minh hơn."
+      />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {solutions.map(solution => (
+          <SolutionCard solution={solution} />
+        ))}
+      </div>
+      <div class="text-center mt-12">
+        <a
+          href={url('/giai-phap')}
+          class="inline-flex items-center gap-2 border-2 border-brand-700 text-brand-700 hover:bg-brand-700 hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+        >
+          Xem tất cả giải pháp
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats band -->
+  <StatsBand />
+
+  <!-- Why Us section -->
+  <section class="py-20 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title="Tại sao chọn Nano Power?"
+        subtitle="Chúng tôi mang lại giá trị thực sự thông qua sự chuyên nghiệp, trách nhiệm và công nghệ tiên tiến."
+        center={true}
+      />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {home.why_us.map(item => (
+          <div class="bg-white rounded-card p-6 text-center shadow-[var(--shadow-card)]">
+            <div class="text-4xl mb-4" aria-hidden="true">{item.icon}</div>
+            <h3 class="font-semibold text-base text-ink mb-2">{item.title}</h3>
+            <p class="text-muted text-sm leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest posts -->
+  {featuredPosts.length > 0 && (
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          title="Tin tức & kiến thức"
+          subtitle="Cập nhật xu hướng công nghệ và chia sẻ kiến thức từ đội ngũ kỹ sư Nano Power."
+        />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {featuredPosts.map(post => (
+            <PostCard post={post} />
+          ))}
+        </div>
+        <div class="text-center mt-12">
+          <a
+            href={url('/tin-tuc')}
+            class="inline-flex items-center gap-2 border-2 border-brand-700 text-brand-700 hover:bg-brand-700 hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+          >
+            Xem tất cả bài viết
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CTABand />
+</Base>

@@ -1,0 +1,42 @@
+hero:
+  title: "Giải pháp tự động hóa & công nghệ toàn diện"
+  subtitle: "Nano Power đồng hành cùng doanh nghiệp trong hành trình chuyển đổi số, tối ưu vận hành và nâng cao năng lực cạnh tranh."
+  cta_label: "Xem giải pháp"
+  cta_url: "/giai-phap"
+  secondary_cta_label: "Liên hệ ngay"
+  secondary_cta_url: "/lien-he"
+
+# TODO: chủ site điền các số liệu thực tế của công ty
+stats:
+  - value: 0 # TODO: chủ site điền số năm kinh nghiệm
+    suffix: "+"
+    label: "Năm kinh nghiệm"
+  - value: 0 # TODO: chủ site điền số dự án đã hoàn thành
+    suffix: "+"
+    label: "Dự án hoàn thành"
+  - value: 0 # TODO: chủ site điền số khách hàng đã phục vụ
+    suffix: "+"
+    label: "Khách hàng tin tưởng"
+  - value: 0 # TODO: chủ site điền số kỹ sư/nhân sự
+    suffix: "+"
+    label: "Kỹ sư chuyên nghiệp"
+  - value: 0 # TODO: chủ site điền số tỉnh/thành đã triển khai dự án
+    suffix: "+"
+    label: "Tỉnh thành triển khai"
+  - value: 0 # TODO: chủ site điền tỷ lệ hài lòng (ví dụ: 98)
+    suffix: "%"
+    label: "Khách hàng hài lòng"
+
+why_us:
+  - icon: "⚡"
+    title: "Đội ngũ kỹ thuật chuyên sâu"
+    description: "Kỹ sư nhiều năm kinh nghiệm trong tự động hóa, điện tử và phần mềm công nghiệp, được đào tạo bài bản và liên tục cập nhật công nghệ mới."
+  - icon: "🔧"
+    title: "Giải pháp tích hợp toàn diện"
+    description: "Từ tư vấn, thiết kế, lập trình đến lắp đặt và bảo trì — Nano Power cung cấp trọn gói, giúp doanh nghiệp tối ưu nguồn lực và thời gian."
+  - icon: "📊"
+    title: "Cam kết tiến độ & chất lượng"
+    description: "Quy trình làm việc minh bạch, báo cáo định kỳ và kiểm tra nghiêm ngặt tại từng giai đoạn để đảm bảo sản phẩm đạt tiêu chuẩn cao nhất."
+  - icon: "🤝"
+    title: "Hỗ trợ sau bàn giao"
+    description: "Dịch vụ bảo trì, nâng cấp và hỗ trợ kỹ thuật trực tuyến giúp hệ thống vận hành ổn định trong suốt vòng đời dự án."

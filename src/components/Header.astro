@@ -1,0 +1,128 @@
+---
+import { url } from '../utils/url';
+import { loadYaml, type SiteData } from '../utils/data';
+
+const site = loadYaml<SiteData>('site.yml');
+
+const navLinks = [
+  { label: 'Giới thiệu', href: url('/gioi-thieu') },
+  { label: 'Giải pháp', href: url('/giai-phap') },
+  { label: 'Dự án', href: url('/du-an') },
+  { label: 'Tin tức', href: url('/tin-tuc') },
+  { label: 'Tuyển dụng', href: url('/tuyen-dung') },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  id="site-header"
+  class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-shadow duration-300"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+
+      <!-- Logo + Brand -->
+      <a href={url('/')} class="flex items-center gap-3 shrink-0 group" aria-label="Nano Power — Trang chủ">
+        <img
+          src={url('/favicon.svg')}
+          alt="Nano Power logo"
+          class="h-10 w-10 object-contain"
+          width="40"
+          height="40"
+        />
+        <span class="font-serif font-bold text-xl text-brand-800 group-hover:text-brand-600 transition-colors">
+          Nano Power
+        </span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-1">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              currentPath.startsWith(link.href.replace(url('/'), url('/').replace(/\/$/, '')))
+                ? 'text-brand-700 bg-brand-50'
+                : 'text-ink hover:text-brand-700 hover:bg-brand-50'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA + hamburger -->
+      <div class="flex items-center gap-3">
+        <a
+          href={url('/lien-he')}
+          class="hidden sm:inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
+        >
+          Liên hệ
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden p-2 rounded-lg text-ink hover:bg-gray-100 transition-colors"
+          aria-label="Mở menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden border-t border-gray-100 bg-white"
+    aria-hidden="true"
+  >
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class="px-4 py-3 rounded-lg text-sm font-medium text-ink hover:text-brand-700 hover:bg-brand-50 transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href={url('/lien-he')}
+        class="mt-2 text-center bg-brand-700 hover:bg-brand-600 text-white text-sm font-semibold px-5 py-3 rounded-lg transition-colors"
+      >
+        Liên hệ ngay
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const iconMenu = document.getElementById('icon-menu')!;
+  const iconClose = document.getElementById('icon-close')!;
+
+  btn.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden', isOpen);
+    menu.setAttribute('aria-hidden', String(isOpen));
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    iconMenu.classList.toggle('hidden', !isOpen);
+    iconClose.classList.toggle('hidden', isOpen);
+  });
+
+  // Add shadow on scroll
+  const header = document.getElementById('site-header')!;
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('shadow-md', window.scrollY > 10);
+  }, { passive: true });
+</script>

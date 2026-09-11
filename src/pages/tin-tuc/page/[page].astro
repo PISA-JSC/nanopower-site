@@ -1,0 +1,62 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PostCard from '../../../components/PostCard.astro';
+import Pagination from '../../../components/Pagination.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { url } from '../../../utils/url';
+import { getCollection } from 'astro:content';
+
+const POSTS_PER_PAGE = 9;
+
+export async function getStaticPaths() {
+  const POSTS_PER_PAGE = 9;
+  const allPosts = (await getCollection('posts', p => !p.data.draft))
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+
+  return Array.from({ length: totalPages - 1 }, (_, i) => {
+    const page = i + 2; // pages 2, 3, ...
+    const start = (page - 1) * POSTS_PER_PAGE;
+    return {
+      params: { page: String(page) },
+      props: {
+        posts: allPosts.slice(start, start + POSTS_PER_PAGE),
+        currentPage: page,
+        totalPages,
+      },
+    };
+  });
+}
+
+const { posts, currentPage, totalPages } = Astro.props;
+---
+
+<Base
+  title={`Tin tức — Trang ${currentPage}`}
+  description="Danh sách bài viết và kiến thức chuyên môn từ Nano Power."
+>
+  <div class="bg-brand-50 border-b border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <Breadcrumb items={[
+        { label: 'Trang chủ', href: url('/') },
+        { label: 'Tin tức', href: url('/tin-tuc') },
+        { label: `Trang ${currentPage}` },
+      ]} />
+    </div>
+  </div>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="font-serif text-3xl font-bold text-ink mb-10">
+        Tin tức & Kiến thức — Trang {currentPage}
+      </h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {posts.map(post => (
+          <PostCard post={post} />
+        ))}
+      </div>
+      <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl="/tin-tuc" />
+    </div>
+  </section>
+</Base>

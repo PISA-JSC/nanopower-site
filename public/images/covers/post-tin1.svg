@@ -1,0 +1,15 @@
+﻿<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgpost-tin1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18751A"/>
+      <stop offset="100%" stop-color="#0A3A0A"/>
+    </linearGradient>
+    <pattern id="hexpost-tin1" x="0" y="0" width="80" height="69.28" patternUnits="userSpaceOnUse">
+      <polygon points="40,2 78,22 78,62 40,82 2,62 2,22" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgpost-tin1)"/>
+  <rect width="1200" height="630" fill="url(#hexpost-tin1)"/>
+  <circle cx="1000" cy="200" r="280" fill="rgba(41,194,44,0.13)"/>
+  <circle cx="900" cy="500" r="140" fill="rgba(41,194,44,0.08)"/>
+</svg>

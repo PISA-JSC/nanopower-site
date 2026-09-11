@@ -1,0 +1,87 @@
+---
+import Base from '../../layouts/Base.astro';
+import CTABand from '../../components/CTABand.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { url } from '../../utils/url';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', p => !p.data.draft);
+  return projects.map(project => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { title, client, industry, summary, cover, year, results } = project.data;
+const { Content } = await render(project);
+---
+
+<Base title={title} description={summary} ogImage={cover}>
+  <div class="bg-brand-50 border-b border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <Breadcrumb items={[
+        { label: 'Trang chủ', href: url('/') },
+        { label: 'Dự án', href: url('/du-an') },
+        { label: title },
+      ]} />
+    </div>
+  </div>
+
+  <!-- Hero image -->
+  <section class="relative bg-brand-900 text-white overflow-hidden h-80">
+    <img src={cover} alt={title} class="absolute inset-0 w-full h-full object-cover opacity-30" width="1200" height="630" />
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-end pb-12">
+      <div class="flex gap-3 mb-3">
+        <span class="bg-brand-500/80 text-white text-xs font-semibold px-3 py-1 rounded-full">{industry}</span>
+        <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full">{year}</span>
+      </div>
+      <h1 class="font-serif text-3xl sm:text-4xl font-bold">{title}</h1>
+    </div>
+  </section>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Overview -->
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      {[
+        { label: 'Khách hàng', value: client },
+        { label: 'Ngành', value: industry },
+        { label: 'Năm triển khai', value: String(year) },
+      ].map(item => (
+        <div class="bg-brand-50 rounded-card p-5">
+          <dt class="text-xs font-semibold uppercase tracking-wider text-brand-600 mb-1">{item.label}</dt>
+          <dd class="text-ink font-semibold">{item.value}</dd>
+        </div>
+      ))}
+    </div>
+
+    <!-- Summary -->
+    <p class="text-lg text-muted leading-relaxed mb-10">{summary}</p>
+
+    <!-- Results -->
+    <div class="bg-brand-50 rounded-card p-8 mb-12">
+      <h2 class="font-serif text-xl font-bold text-ink mb-5">Kết quả đạt được</h2>
+      <ul class="space-y-3">
+        {results.map(result => (
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-ink">{result}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="prose">
+      <Content />
+    </div>
+  </div>
+
+  <CTABand
+    title="Bạn có dự án tương tự?"
+    subtitle="Hãy để Nano Power tư vấn và đồng hành cùng bạn triển khai thành công."
+  />
+</Base>

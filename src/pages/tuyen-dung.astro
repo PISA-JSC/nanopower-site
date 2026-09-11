@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import CTABand from '../components/CTABand.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { url } from '../utils/url';
+import { getCollection } from 'astro:content';
+
+const jobs = (await getCollection('posts', p =>
+  !p.data.draft && p.data.category === 'tuyen-dung'
+)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Base
+  title="Tuyển dụng"
+  description="Nano Power tuyển dụng kỹ sư và nhân viên kỹ thuật. Cùng phát triển trong môi trường công nghệ năng động."
+>
+  <div class="bg-brand-50 border-b border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <Breadcrumb items={[
+        { label: 'Trang chủ', href: url('/') },
+        { label: 'Tuyển dụng' },
+      ]} />
+    </div>
+  </div>
+
+  <section class="bg-brand-800 text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold mb-4">Tuyển dụng</h1>
+      <p class="text-brand-100 text-xl leading-relaxed">
+        Gia nhập đội ngũ kỹ sư trẻ, sáng tạo và đam mê công nghệ tại Nano Power.
+      </p>
+    </div>
+  </section>
+
+  <!-- Culture section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="font-serif text-2xl font-bold text-ink mb-4">Tại sao gia nhập Nano Power?</h2>
+        <p class="text-muted leading-relaxed">
+          Chúng tôi không chỉ tìm kiếm nhân sự — chúng tôi tìm kiếm những người đam mê giải quyết vấn đề thực tế bằng công nghệ.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { icon: '🚀', title: 'Môi trường năng động', desc: 'Làm việc trực tiếp trên các dự án thực tế, học hỏi nhanh từ đồng nghiệp và dự án.' },
+          { icon: '📚', title: 'Phát triển kỹ năng', desc: 'Hỗ trợ học tập, thi chứng chỉ và tham dự hội thảo chuyên ngành.' },
+          { icon: '💼', title: 'Chế độ cạnh tranh', desc: 'Lương thưởng theo năng lực, thưởng dự án và các phúc lợi hấp dẫn.' },
+          { icon: '🤝', title: 'Văn hóa cởi mở', desc: 'Chia sẻ ý kiến thẳng thắn, đề xuất cải tiến được lắng nghe và triển khai.' },
+        ].map(item => (
+          <div class="bg-brand-50 rounded-card p-6 text-center">
+            <div class="text-3xl mb-3">{item.icon}</div>
+            <h3 class="font-semibold text-base text-ink mb-2">{item.title}</h3>
+            <p class="text-muted text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Job listings -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl font-bold text-ink mb-8">Vị trí đang tuyển</h2>
+      {jobs.length > 0 ? (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {jobs.map(job => (
+            <PostCard post={job} />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-16 text-muted">
+          <p class="text-xl mb-2">Hiện tại chưa có vị trí tuyển dụng nào.</p>
+          <p class="text-sm">Hãy gửi CV để chúng tôi liên hệ khi có vị trí phù hợp.</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Spontaneous application -->
+  <section class="py-16 bg-white">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-serif text-2xl font-bold text-ink mb-4">Ứng tuyển tự do</h2>
+      <p class="text-muted mb-8 leading-relaxed">
+        Không thấy vị trí phù hợp? Hãy gửi CV của bạn và mô tả ngắn về bản thân. Chúng tôi luôn chào đón những tài năng.
+      </p>
+      <a
+        href={url('/lien-he')}
+        class="inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-600 text-white font-semibold px-8 py-4 rounded-lg transition-colors"
+      >
+        Gửi CV cho chúng tôi
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <CTABand />
+</Base>

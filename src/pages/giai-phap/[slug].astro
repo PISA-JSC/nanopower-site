@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+import CTABand from '../../components/CTABand.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { url } from '../../utils/url';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const solutions = await getCollection('solutions', s => !s.data.draft);
+  return solutions.map(solution => ({
+    params: { slug: solution.id },
+    props: { solution },
+  }));
+}
+
+const { solution } = Astro.props;
+const { title, summary, icon, cover, features } = solution.data;
+const { Content } = await render(solution);
+---
+
+<Base
+  title={title}
+  description={summary}
+  ogImage={cover}
+>
+  <div class="bg-brand-50 border-b border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <Breadcrumb items={[
+        { label: 'Trang chủ', href: url('/') },
+        { label: 'Giải pháp', href: url('/giai-phap') },
+        { label: title },
+      ]} />
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="relative bg-brand-800 text-white overflow-hidden">
+    <figure class="absolute inset-0">
+      <img src={cover} alt={title} class="w-full h-full object-cover opacity-20" width="1200" height="630" />
+    </figure>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+      <div class="text-5xl mb-4" aria-hidden="true">{icon}</div>
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold mb-4">{title}</h1>
+      <p class="text-brand-100 text-xl max-w-2xl mx-auto leading-relaxed">{summary}</p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-16 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl font-bold text-ink mb-8">Tính năng nổi bật</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {features.map(feature => (
+          <div class="flex items-start gap-3 bg-white rounded-card p-4 shadow-[var(--shadow-card)]">
+            <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-ink text-sm font-medium">{feature}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+
+  <CTABand
+    title={`Bạn cần giải pháp ${title}?`}
+    subtitle="Đội ngũ kỹ sư Nano Power sẵn sàng phân tích bài toán và đề xuất phương án tối ưu nhất cho doanh nghiệp của bạn."
+  />
+</Base>

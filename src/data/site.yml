@@ -1,0 +1,19 @@
+# TODO: chủ site điền các thông tin thực tế của công ty
+company_name: "Công ty cổ phần Nano Power" # TODO: xác nhận tên đầy đủ trên giấy phép
+company_short: "Nano Power"
+tagline: "Giải pháp tự động hóa & công nghệ toàn diện" # TODO: chủ site điền tagline chính thức
+
+founded_year: 2020 # TODO: chủ site điền năm thành lập thực tế
+tax_code: "0000000000" # TODO: chủ site điền mã số thuế thực tế
+address: "Địa chỉ công ty" # TODO: chủ site điền địa chỉ đầy đủ
+phone: "+84 xxx xxx xxxx" # TODO: chủ site điền số điện thoại
+email: "info@nanopower.vn" # TODO: chủ site điền email chính thức
+working_hours: "Thứ 2 – Thứ 6: 8:00 – 17:30" # TODO: chủ site xác nhận giờ làm việc
+
+map_embed_url: "" # TODO: chủ site lấy link nhúng Google Maps của địa chỉ công ty
+
+social:
+  facebook: "" # TODO: chủ site điền URL trang Facebook
+  linkedin: "" # TODO: chủ site điền URL trang LinkedIn
+  youtube: "" # TODO: chủ site điền URL kênh YouTube
+  zalo: "" # TODO: chủ site điền số Zalo OA hoặc URL

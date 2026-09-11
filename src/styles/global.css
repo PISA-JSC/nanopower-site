@@ -1,0 +1,121 @@
+/* Self-hosted fonts — no CDN calls */
+@import "@fontsource/be-vietnam-pro/400.css";
+@import "@fontsource/be-vietnam-pro/500.css";
+@import "@fontsource/be-vietnam-pro/600.css";
+@import "@fontsource/be-vietnam-pro/700.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/playfair-display/400.css";
+
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — sampled from Nano Power logo */
+  --color-brand-50:  #F0FBF0;
+  --color-brand-100: #D6F5D6;
+  --color-brand-200: #AAEAAA;
+  --color-brand-300: #70D870;
+  --color-brand-400: #40C640;
+  --color-brand-500: #29C22C; /* primary light green */
+  --color-brand-600: #22A024;
+  --color-brand-700: #18751A; /* primary dark green — WCAG AA on white */
+  --color-brand-800: #115511;
+  --color-brand-900: #0A3A0A;
+
+  --color-ink:   #1A1A2E; /* body text */
+  --color-muted: #6B7280; /* secondary text */
+
+  /* Typography */
+  --font-sans:  "Be Vietnam Pro", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+
+  /* Spacing & shape tokens */
+  --radius-card: 0.75rem;
+
+  /* Shadow tokens */
+  --shadow-card:       0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+/* Base reset */
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+}
+
+/* Ensure images don't break layout */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prose styles for Markdown content */
+.prose {
+  color: var(--color-ink);
+  max-width: 72ch;
+  line-height: 1.75;
+}
+
+.prose h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-brand-800);
+}
+
+.prose h3 {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose ul li {
+  margin-bottom: 0.375rem;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: var(--color-brand-800);
+}
+
+.prose a {
+  color: var(--color-brand-700);
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: var(--color-brand-500);
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--color-brand-500);
+  padding-left: 1rem;
+  color: var(--color-muted);
+  font-style: italic;
+  margin: 1.5rem 0;
+}

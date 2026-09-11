@@ -1,0 +1,45 @@
+---
+import { url } from '../utils/url';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+const {
+  title = 'Sẵn sàng tối ưu hóa doanh nghiệp của bạn?',
+  subtitle = 'Đội ngũ kỹ sư Nano Power luôn sẵn sàng tư vấn giải pháp phù hợp nhất với nhu cầu và quy mô của bạn.',
+  primaryLabel = 'Liên hệ tư vấn',
+  primaryHref = '/lien-he',
+  secondaryLabel = 'Xem dự án',
+  secondaryHref = '/du-an',
+} = Astro.props;
+---
+
+<section class="bg-brand-700 text-white py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-4">{title}</h2>
+    <p class="text-brand-100 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">{subtitle}</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href={url(primaryHref)}
+        class="inline-flex items-center justify-center gap-2 bg-white text-brand-700 hover:bg-brand-50 font-semibold px-8 py-4 rounded-lg transition-colors"
+      >
+        {primaryLabel}
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+      <a
+        href={url(secondaryHref)}
+        class="inline-flex items-center justify-center gap-2 border-2 border-white/40 hover:border-white hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-lg transition-colors"
+      >
+        {secondaryLabel}
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,127 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import CTABand from '../components/CTABand.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { url } from '../utils/url';
+import { loadYaml, type SiteData } from '../utils/data';
+
+const site = loadYaml<SiteData>('site.yml');
+---
+
+<Base
+  title="Về Nano Power"
+  description={`Tìm hiểu về ${site.company_name} — đội ngũ, lịch sử và sứ mệnh phát triển công nghệ tự động hóa.`}
+>
+  <!-- Breadcrumb -->
+  <div class="bg-brand-50 border-b border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <Breadcrumb items={[
+        { label: 'Trang chủ', href: url('/') },
+        { label: 'Giới thiệu' },
+      ]} />
+    </div>
+  </div>
+
+  <!-- Page hero -->
+  <section class="bg-brand-800 text-white py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold mb-4">Về Nano Power</h1>
+      <p class="text-brand-100 text-xl leading-relaxed">
+        Đồng hành cùng doanh nghiệp trên hành trình chuyển đổi số và tự động hóa
+      </p>
+    </div>
+  </section>
+
+  <!-- Giới thiệu chung -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <SectionHeading
+            title="Câu chuyện của chúng tôi"
+            subtitle="Nano Power được thành lập với sứ mệnh mang công nghệ tự động hóa hiện đại đến gần hơn với các doanh nghiệp Việt Nam."
+          />
+          <div class="space-y-4 text-muted leading-relaxed">
+            <p>
+              Từ những ngày đầu, chúng tôi đã xác định rõ hướng đi: không chỉ cung cấp thiết bị hay phần mềm đơn thuần, mà đồng hành cùng khách hàng từ giai đoạn phân tích bài toán đến vận hành hệ thống ổn định.
+            </p>
+            <p>
+              Đội ngũ kỹ sư của Nano Power được đào tạo chuyên sâu và có kinh nghiệm thực tiễn trên nhiều lĩnh vực: tự động hóa công nghiệp, phát triển phần mềm, thiết kế mạch điện tử, hệ thống điện và xử lý nước.
+            </p>
+            <p>
+              Chúng tôi tin rằng công nghệ không phải là đích đến mà là phương tiện — để giúp doanh nghiệp tiết kiệm chi phí, nâng cao năng suất và cạnh tranh hiệu quả hơn trên thị trường.
+            </p>
+          </div>
+        </div>
+        <div class="rounded-card overflow-hidden shadow-[var(--shadow-card-hover)]">
+          <img
+            src={url('/images/covers/gioi-thieu-cover.svg')}
+            alt="Đội ngũ Nano Power"
+            class="w-full aspect-[16/10] object-cover"
+            width="640"
+            height="400"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sứ mệnh, tầm nhìn, giá trị -->
+  <section class="py-20 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading title="Sứ mệnh & Tầm nhìn" center={true} />
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            icon: '🎯',
+            title: 'Sứ mệnh',
+            text: 'Cung cấp giải pháp công nghệ chất lượng cao, giúp doanh nghiệp Việt Nam tối ưu hóa vận hành, nâng cao năng suất và bứt phá trong kỷ nguyên số.',
+          },
+          {
+            icon: '🔭',
+            title: 'Tầm nhìn',
+            text: 'Trở thành đối tác công nghệ tin cậy hàng đầu Việt Nam, được nhận diện qua chất lượng kỹ thuật và sự tận tâm với từng dự án.',
+          },
+          {
+            icon: '💎',
+            title: 'Giá trị cốt lõi',
+            text: 'Chính trực trong tư vấn — Sáng tạo trong giải pháp — Chuyên nghiệp trong thực thi — Đồng hành trong sau bàn giao.',
+          },
+        ].map(item => (
+          <div class="bg-white rounded-card p-8 shadow-[var(--shadow-card)] text-center">
+            <div class="text-4xl mb-4">{item.icon}</div>
+            <h3 class="font-serif font-bold text-xl text-ink mb-3">{item.title}</h3>
+            <p class="text-muted text-sm leading-relaxed">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Thông tin công ty -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading title="Thông tin công ty" center={true} />
+      <div class="bg-brand-50 rounded-card p-8 shadow-[var(--shadow-card)]">
+        <dl class="grid sm:grid-cols-2 gap-6">
+          {[
+            ['Tên đầy đủ', site.company_name],
+            ['Năm thành lập', String(site.founded_year)],
+            ['Mã số thuế', site.tax_code],
+            ['Địa chỉ', site.address],
+            ['Điện thoại', site.phone],
+            ['Email', site.email],
+          ].map(([label, value]) => (
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-wider text-brand-600 mb-1">{label}</dt>
+              <dd class="text-ink font-medium">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</Base>

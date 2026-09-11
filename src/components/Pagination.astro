@@ -1,0 +1,93 @@
+---
+import { url } from '../utils/url';
+
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string; // e.g. "/tin-tuc"
+}
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+
+const getPageUrl = (page: number) => {
+  if (page === 1) return url(baseUrl);
+  return url(`${baseUrl}/page/${page}`);
+};
+
+// Build page number list with ellipsis
+const pages: (number | '...')[] = [];
+if (totalPages <= 7) {
+  for (let i = 1; i <= totalPages; i++) pages.push(i);
+} else {
+  pages.push(1);
+  if (currentPage > 3) pages.push('...');
+  for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
+    pages.push(i);
+  }
+  if (currentPage < totalPages - 2) pages.push('...');
+  pages.push(totalPages);
+}
+---
+
+{totalPages > 1 && (
+  <nav class="flex items-center justify-center gap-1 mt-12" aria-label="Phân trang">
+    <!-- Prev -->
+    {currentPage > 1 ? (
+      <a
+        href={getPageUrl(currentPage - 1)}
+        class="flex items-center gap-1 px-4 py-2 rounded-lg border border-gray-200 text-ink hover:bg-brand-50 hover:border-brand-300 hover:text-brand-700 transition-colors text-sm font-medium"
+        aria-label="Trang trước"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Trước
+      </a>
+    ) : (
+      <span class="flex items-center gap-1 px-4 py-2 rounded-lg text-gray-300 text-sm cursor-default" aria-disabled="true">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Trước
+      </span>
+    )}
+
+    <!-- Page numbers -->
+    {pages.map(p => (
+      p === '...'
+        ? <span class="px-3 py-2 text-muted text-sm">…</span>
+        : <a
+            href={getPageUrl(p as number)}
+            class={`w-9 h-9 flex items-center justify-center rounded-lg text-sm font-medium transition-colors ${
+              p === currentPage
+                ? 'bg-brand-700 text-white'
+                : 'text-ink hover:bg-brand-50 hover:text-brand-700 border border-gray-200 hover:border-brand-300'
+            }`}
+            aria-current={p === currentPage ? 'page' : undefined}
+          >
+            {p}
+          </a>
+    ))}
+
+    <!-- Next -->
+    {currentPage < totalPages ? (
+      <a
+        href={getPageUrl(currentPage + 1)}
+        class="flex items-center gap-1 px-4 py-2 rounded-lg border border-gray-200 text-ink hover:bg-brand-50 hover:border-brand-300 hover:text-brand-700 transition-colors text-sm font-medium"
+        aria-label="Trang sau"
+      >
+        Sau
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    ) : (
+      <span class="flex items-center gap-1 px-4 py-2 rounded-lg text-gray-300 text-sm cursor-default" aria-disabled="true">
+        Sau
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </span>
+    )}
+  </nav>
+)}

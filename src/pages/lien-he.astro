@@ -1,0 +1,257 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { url } from '../utils/url';
+import { loadYaml, type SiteData } from '../utils/data';
+
+const site = loadYaml<SiteData>('site.yml');
+const formAction = `mailto:${site.email}`;
+---
+
+<Base
+  title="Liên hệ"
+  description={`Liên hệ với ${site.company_name} để được tư vấn giải pháp công nghệ phù hợp.`}
+>
+  <div class="bg-brand-50 border-b border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <Breadcrumb items={[
+        { label: 'Trang chủ', href: url('/') },
+        { label: 'Liên hệ' },
+      ]} />
+    </div>
+  </div>
+
+  <section class="bg-brand-800 text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold mb-4">Liên hệ với chúng tôi</h1>
+      <p class="text-brand-100 text-xl leading-relaxed">
+        Chúng tôi luôn sẵn sàng lắng nghe và tư vấn giải pháp phù hợp nhất cho doanh nghiệp của bạn.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+
+        <!-- Form -->
+        <div>
+          <h2 class="font-serif text-2xl font-bold text-ink mb-6">Gửi yêu cầu tư vấn</h2>
+
+          <!-- Note about form setup -->
+          <!-- To receive emails: configure the email service in README.md -->
+          <form
+            id="contact-form"
+            class="space-y-5"
+            novalidate
+          >
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-medium text-ink mb-1.5" for="name">
+                  Họ và tên <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Nguyễn Văn A"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-colors"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-ink mb-1.5" for="company">
+                  Công ty / Tổ chức
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  placeholder="Tên công ty"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-colors"
+                />
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-medium text-ink mb-1.5" for="email">
+                  Email <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="email@example.com"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-colors"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-ink mb-1.5" for="phone">
+                  Số điện thoại
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="0900 000 000"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-colors"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-ink mb-1.5" for="subject">
+                Chủ đề
+              </label>
+              <select
+                id="subject"
+                name="subject"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-colors"
+              >
+                <option value="">-- Chọn chủ đề --</option>
+                <option>Tư vấn giải pháp tự động hóa</option>
+                <option>Phát triển phần mềm</option>
+                <option>Thiết kế phần cứng OEM/ODM</option>
+                <option>Hệ thống điện</option>
+                <option>Hệ thống xử lý nước</option>
+                <option>IoT & Giám sát từ xa</option>
+                <option>Tuyển dụng / Hợp tác</option>
+                <option>Khác</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-ink mb-1.5" for="message">
+                Nội dung <span class="text-red-500">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={5}
+                placeholder="Mô tả ngắn về nhu cầu hoặc dự án của bạn..."
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-colors resize-none"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-brand-700 hover:bg-brand-600 text-white font-semibold py-4 rounded-lg transition-colors text-sm"
+            >
+              Gửi yêu cầu tư vấn
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact info + map -->
+        <div class="flex flex-col gap-8">
+          <!-- Info -->
+          <div>
+            <h2 class="font-serif text-2xl font-bold text-ink mb-6">Thông tin liên hệ</h2>
+            <ul class="space-y-5">
+              {[
+                {
+                  icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
+                  label: 'Địa chỉ',
+                  value: site.address,
+                },
+                {
+                  icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z',
+                  label: 'Điện thoại',
+                  value: site.phone,
+                  href: `tel:${site.phone}`,
+                },
+                {
+                  icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+                  label: 'Email',
+                  value: site.email,
+                  href: `mailto:${site.email}`,
+                },
+                {
+                  icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+                  label: 'Giờ làm việc',
+                  value: site.working_hours,
+                },
+              ].map(item => (
+                <li class="flex gap-4">
+                  <div class="w-10 h-10 rounded-lg bg-brand-50 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-0.5">{item.label}</p>
+                    {item.href ? (
+                      <a href={item.href} class="text-ink hover:text-brand-700 transition-colors">{item.value}</a>
+                    ) : (
+                      <p class="text-ink">{item.value}</p>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Map embed -->
+          {site.map_embed_url ? (
+            <div class="rounded-card overflow-hidden h-64 border border-gray-200">
+              <iframe
+                src={site.map_embed_url}
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Bản đồ vị trí Nano Power"
+              ></iframe>
+            </div>
+          ) : (
+            <div class="rounded-card overflow-hidden h-64 bg-brand-50 flex items-center justify-center border border-brand-100">
+              <p class="text-muted text-sm text-center px-8">
+                Bản đồ sẽ hiển thị sau khi điền <code>map_embed_url</code> trong <code>src/data/site.yml</code>
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Simple client-side form submission via mailto fallback
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const emailTo = '{site.email}';
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name    = (form.querySelector('#name')    as HTMLInputElement).value.trim();
+    const company = (form.querySelector('#company') as HTMLInputElement).value.trim();
+    const email   = (form.querySelector('#email')   as HTMLInputElement).value.trim();
+    const phone   = (form.querySelector('#phone')   as HTMLInputElement).value.trim();
+    const subject = (form.querySelector('#subject') as HTMLSelectElement).value;
+    const message = (form.querySelector('#message') as HTMLTextAreaElement).value.trim();
+
+    if (!name || !email || !message) {
+      alert('Vui lòng điền đầy đủ các trường bắt buộc.');
+      return;
+    }
+
+    const body = [
+      `Họ tên: ${name}`,
+      company ? `Công ty: ${company}` : '',
+      `Email: ${email}`,
+      phone ? `Điện thoại: ${phone}` : '',
+      '',
+      message,
+    ].filter(Boolean).join('\n');
+
+    const mailtoUrl = `mailto:${document.querySelector('[data-email]')?.getAttribute('data-email') ?? ''}?subject=${encodeURIComponent(subject || 'Yêu cầu tư vấn từ website')}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoUrl;
+  });
+</script>

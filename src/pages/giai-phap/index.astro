@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import SolutionCard from '../../components/SolutionCard.astro';
+import CTABand from '../../components/CTABand.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { url } from '../../utils/url';
+import { getCollection } from 'astro:content';
+
+const solutions = (await getCollection('solutions', s => !s.data.draft))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base
+  title="Giải pháp"
+  description="Nano Power cung cấp giải pháp toàn diện: tự động hóa công nghiệp, phần mềm, phần cứng, điện và nước."
+>
+  <div class="bg-brand-50 border-b border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <Breadcrumb items={[
+        { label: 'Trang chủ', href: url('/') },
+        { label: 'Giải pháp' },
+      ]} />
+    </div>
+  </div>
+
+  <section class="bg-brand-800 text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold mb-4">Lĩnh vực giải pháp</h1>
+      <p class="text-brand-100 text-xl leading-relaxed">
+        Từ phần cứng đến phần mềm, từ tự động hóa đến hạ tầng kỹ thuật — Nano Power cung cấp đầy đủ nền tảng công nghệ cho doanh nghiệp.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {solutions.map(solution => (
+          <SolutionCard solution={solution} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</Base>
