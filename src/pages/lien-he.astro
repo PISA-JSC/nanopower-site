@@ -42,6 +42,7 @@ const formAction = `mailto:${site.email}`;
           <!-- To receive emails: configure the email service in README.md -->
           <form
             id="contact-form"
+            data-email={site.email}
             class="space-y-5"
             novalidate
           >
@@ -224,7 +225,6 @@ const formAction = `mailto:${site.email}`;
 <script>
   // Simple client-side form submission via mailto fallback
   const form = document.getElementById('contact-form') as HTMLFormElement;
-  const emailTo = '{site.email}';
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
