@@ -1,19 +1,14 @@
 ---
-title: "Hệ thống giám sát chất lượng nước thải công nghiệp"
-client: "Ban Quản lý KCN Long Hậu"
-industry: "Môi trường & Xử lý nước"
-summary: "Xây dựng hệ thống giám sát liên tục các thông số nước thải trước xả ra môi trường, tích hợp cảnh báo tự động và báo cáo tuân thủ QCVN, giúp doanh nghiệp chủ động quản lý môi trường và tránh vi phạm."
-cover: "/nanopower-site/images/covers/project-2.svg"
+title: Hệ thống giám sát chất lượng nước thải công nghiệp
+client: Ban Quản lý KCN Long Hậu
+industry: Môi trường & Xử lý nước
+summary: Xây dựng hệ thống giám sát liên tục các thông số nước thải trước xả ra
+  môi trường, tích hợp cảnh báo tự động và báo cáo tuân thủ QCVN, giúp doanh
+  nghiệp chủ động quản lý môi trường và tránh vi phạm.
+cover: /nanopower-site/images/covers/project-2.svg
 year: 2024
-results:
-  - "Giám sát liên tục 8 thông số chất lượng nước thải 24/7"
-  - "Cảnh báo tức thì qua Zalo/email khi thông số vượt ngưỡng QCVN"
-  - "Giảm 90% thời gian lập báo cáo môi trường định kỳ"
-  - "Phát hiện sự cố xử lý nước trước khi gây vi phạm pháp lý"
-  - "Dữ liệu minh bạch phục vụ kiểm tra của cơ quan quản lý"
 draft: false
 ---
-
 ## Bối cảnh dự án
 
 Khách hàng B là khu công nghiệp có trạm xử lý nước thải tập trung phải tuân thủ nghiêm ngặt QCVN 40:2011/BTNMT. Hệ thống giám sát cũ dựa trên lấy mẫu thủ công không đảm bảo phát hiện kịp thời khi có sự cố trong quy trình xử lý.
