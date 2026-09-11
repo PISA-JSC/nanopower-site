@@ -4,8 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://pisa-jsc.github.io',
-  base: '/nanopower-site',
+  site: 'https://nanopower.vn',
+  base: '',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
