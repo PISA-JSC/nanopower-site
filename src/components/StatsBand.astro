@@ -1,26 +1,25 @@
 ---
 import { loadYaml, type HomeData } from '../utils/data';
-
 const home = loadYaml<HomeData>('home.yml');
 const { stats } = home;
 ---
 
-<section class="bg-canvas py-16 lg:py-20">
+<section class="border-y border-slate-100 py-14 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-10 gap-x-6 text-center">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-10 gap-x-4 text-center">
       {stats.map((stat, i) => (
-        <div class="flex flex-col items-center">
-          <div class="flex items-baseline gap-0.5 mb-1.5">
+        <div>
+          <div class="flex items-baseline justify-center gap-0.5 mb-1.5">
             <span
-              class="font-bold text-[2.625rem] leading-none text-white counter"
+              class="text-[2.5rem] font-bold text-ink leading-none tabular-nums counter"
               data-target={stat.value}
               data-index={i}
             >
               {stat.value}
             </span>
-            <span class="font-semibold text-xl text-brand-500">{stat.suffix}</span>
+            <span class="text-xl font-semibold text-brand-700">{stat.suffix}</span>
           </div>
-          <p class="text-slate-400 text-sm font-medium">{stat.label}</p>
+          <p class="text-slate-500 text-sm">{stat.label}</p>
         </div>
       ))}
     </div>
@@ -37,7 +36,7 @@ const { stats } = home;
     const animate = (el: HTMLElement) => {
       const target = parseInt(el.dataset.target ?? '0', 10);
       if (target === 0) return;
-      const duration = 1500;
+      const duration = 1400;
       const start = performance.now();
       const step = (now: number) => {
         const t = Math.min((now - start) / duration, 1);
@@ -48,9 +47,8 @@ const { stats } = home;
       };
       requestAnimationFrame(step);
     };
-
     const io = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
+      entries => entries.forEach(e => {
         if (e.isIntersecting) { animate(e.target as HTMLElement); io.unobserve(e.target); }
       }),
       { threshold: 0.4 }

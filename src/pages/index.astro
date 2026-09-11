@@ -21,84 +21,108 @@ const featuredPosts = (await getCollection('posts', p => !p.data.draft))
 ---
 
 <Base title="Nano Power">
+  <!-- ① Hero (dark canvas) -->
   <Hero />
 
-  <!-- Solutions section -->
+  <!-- ② Stats — proof numbers, white bg, border-y -->
+  <StatsBand />
+
+  <!-- ③ Solutions (white) -->
   <section class="py-24 lg:py-32 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionHeading
-        title="Lĩnh vực giải pháp"
-        subtitle="Chúng tôi cung cấp giải pháp toàn diện từ phần cứng đến phần mềm, giúp doanh nghiệp vận hành thông minh hơn."
-      />
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {solutions.map(solution => (
-          <SolutionCard solution={solution} />
-        ))}
-      </div>
-      <div class="text-center mt-12">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
+        <SectionHeading
+          label="Năng lực cốt lõi"
+          title="Giải pháp chúng tôi cung cấp"
+        />
         <a
           href={url('/giai-phap')}
-          class="inline-flex items-center gap-2 border-2 border-brand-700 text-brand-700 hover:bg-brand-700 hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+          class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-600 transition-colors pb-1"
         >
           Xem tất cả giải pháp
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- Stats band -->
-  <StatsBand />
-
-  <!-- Why Us section -->
-  <section class="py-24 lg:py-32 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionHeading
-        title="Tại sao chọn Nano Power?"
-        subtitle="Chúng tôi mang lại giá trị thực sự thông qua sự chuyên nghiệp, trách nhiệm và công nghệ tiên tiến."
-        center={true}
-      />
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {home.why_us.map(item => (
-          <div class="bg-white rounded-[var(--radius-card)] p-6 text-center shadow-[var(--shadow-card)]">
-            <div class="text-4xl mb-4" aria-hidden="true">{item.icon}</div>
-            <h3 class="font-semibold text-base text-ink mb-2">{item.title}</h3>
-            <p class="text-muted text-sm leading-relaxed">{item.description}</p>
-          </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {solutions.map(solution => (
+          <SolutionCard solution={solution} />
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Latest posts -->
-  {featuredPosts.length > 0 && (
-    <section class="py-24 lg:py-32 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="Tin tức & kiến thức"
-          subtitle="Cập nhật xu hướng công nghệ và chia sẻ kiến thức từ đội ngũ kỹ sư Nano Power."
-        />
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {featuredPosts.map(post => (
-            <PostCard post={post} />
-          ))}
-        </div>
-        <div class="text-center mt-12">
+  <!-- ④ Why Us (slate-50) — list layout, not 4-card grid -->
+  <section class="py-24 lg:py-32 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[1fr_1fr] gap-16 items-start">
+
+        <!-- Left: heading block -->
+        <div>
+          <SectionHeading
+            label="Tại sao chọn chúng tôi"
+            title="Cam kết từ đội ngũ kỹ thuật"
+            subtitle="Chúng tôi không chỉ cung cấp thiết bị hay phần mềm — chúng tôi giải quyết bài toán vận hành thực tế của doanh nghiệp bạn."
+          />
           <a
-            href={url('/tin-tuc')}
-            class="inline-flex items-center gap-2 border-2 border-brand-700 text-brand-700 hover:bg-brand-700 hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+            href={url('/gioi-thieu')}
+            class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-600 transition-colors"
           >
-            Xem tất cả bài viết
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            Tìm hiểu về chúng tôi
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </a>
+        </div>
+
+        <!-- Right: feature list -->
+        <div class="flex flex-col gap-8">
+          {home.why_us.map(item => (
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-xl shrink-0">
+                {item.icon}
+              </div>
+              <div>
+                <h3 class="font-semibold text-[0.9375rem] text-ink mb-1">{item.title}</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ Latest posts (white) -->
+  {featuredPosts.length > 0 && (
+    <section class="py-24 lg:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
+          <SectionHeading
+            label="Kiến thức & tin tức"
+            title="Cập nhật mới nhất"
+          />
+          <a
+            href={url('/tin-tuc')}
+            class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-600 transition-colors pb-1"
+          >
+            Xem tất cả bài viết
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {featuredPosts.map(post => (
+            <PostCard post={post} />
+          ))}
         </div>
       </div>
     </section>
   )}
 
+  <!-- ⑥ CTA (dark canvas) -->
   <CTABand />
 </Base>

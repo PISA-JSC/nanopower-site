@@ -5,43 +5,35 @@ import type { CollectionEntry } from 'astro:content';
 interface Props {
   solution: CollectionEntry<'solutions'>;
 }
-
 const { solution } = Astro.props;
-const { title, summary, icon, cover } = solution.data;
+const { title, summary, icon } = solution.data;
 const slug = solution.id;
 ---
 
 <a
   href={url(`/giai-phap/${slug}`)}
-  class="group flex flex-col bg-white rounded-[var(--radius-card)] border border-slate-200 overflow-hidden
-         shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)]
-         hover:-translate-y-[2px] transition-[transform,box-shadow] duration-150 ease-out"
+  class="group flex flex-col gap-5 p-6 bg-white rounded-[var(--radius-card)] border border-slate-100
+         hover:border-brand-100 hover:shadow-[var(--shadow-card-hover)]
+         transition-all duration-200"
 >
-  <!-- Cover image with fixed 16:9 ratio -->
-  <figure class="aspect-[16/9] overflow-hidden bg-brand-50">
-    <img
-      src={cover}
-      alt={title}
-      class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-      loading="lazy"
-      width="640"
-      height="360"
-    />
-  </figure>
+  <!-- Icon -->
+  <div class="w-12 h-12 rounded-xl bg-slate-50 group-hover:bg-brand-50 flex items-center justify-center text-2xl transition-colors duration-150 shrink-0">
+    {icon}
+  </div>
 
-  <div class="p-6 flex flex-col flex-1">
-    <div class="flex items-center gap-3 mb-3">
-      <span class="text-2xl" aria-hidden="true">{icon}</span>
-      <h3 class="font-semibold text-[0.9375rem] text-ink group-hover:text-brand-700 transition-colors leading-snug">
-        {title}
-      </h3>
-    </div>
-    <p class="text-muted text-sm leading-relaxed flex-1">{summary}</p>
-    <div class="mt-5 flex items-center gap-1 text-brand-700 text-sm font-semibold">
-      Xem chi tiết
-      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-      </svg>
-    </div>
+  <div class="flex-1">
+    <h3 class="font-semibold text-[0.9375rem] text-ink group-hover:text-brand-700 transition-colors duration-150 mb-2 leading-snug">
+      {title}
+    </h3>
+    <p class="text-slate-500 text-sm leading-relaxed line-clamp-3">
+      {summary}
+    </p>
+  </div>
+
+  <div class="flex items-center gap-1 text-brand-700 text-xs font-semibold">
+    Xem chi tiết
+    <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+    </svg>
   </div>
 </a>
