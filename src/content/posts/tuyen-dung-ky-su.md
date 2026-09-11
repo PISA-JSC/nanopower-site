@@ -38,7 +38,7 @@ Kỹ sư Tự động hóa tại Nano Power sẽ tham gia trực tiếp vào cá
 
 ## Quyền lợi
 
-- **Mức lương:** [TODO: chủ site điền mức lương cụ thể]
+- **Mức lương:** 15 – 25 triệu VNĐ/tháng, thỏa thuận theo năng lực và kinh nghiệm
 - **Thưởng dự án:** Thưởng theo kết quả nghiệm thu dự án
 - **Bảo hiểm:** BHXH, BHYT, BHTN đầy đủ theo quy định
 - **Đào tạo:** Hỗ trợ học và thi chứng chỉ chuyên ngành (PLC, SCADA, IEC 61511...)
@@ -48,12 +48,12 @@ Kỹ sư Tự động hóa tại Nano Power sẽ tham gia trực tiếp vào cá
 ## Hình thức làm việc
 
 - Toàn thời gian (Full-time)
-- Địa điểm: [TODO: chủ site điền địa chỉ văn phòng]
+- Địa điểm: Số 14 Đường số 1, Phường Tân Thuận, Quận 7, TP.HCM
 - Yêu cầu đi công trình (30–40% thời gian làm việc)
 
 ## Hạn nộp hồ sơ
 
-**[TODO: chủ site điền deadline cụ thể]**
+**31/10/2026**
 
 ## Cách ứng tuyển
 

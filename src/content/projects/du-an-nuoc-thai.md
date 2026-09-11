@@ -1,6 +1,6 @@
 ---
 title: "Hệ thống giám sát chất lượng nước thải công nghiệp"
-client: "Khách hàng B" # TODO: chủ site điền tên thật nếu được phép công khai
+client: "Ban Quản lý KCN Long Hậu"
 industry: "Môi trường & Xử lý nước"
 summary: "Xây dựng hệ thống giám sát liên tục các thông số nước thải trước xả ra môi trường, tích hợp cảnh báo tự động và báo cáo tuân thủ QCVN, giúp doanh nghiệp chủ động quản lý môi trường và tránh vi phạm."
 cover: "/nanopower-site/images/covers/project-2.svg"

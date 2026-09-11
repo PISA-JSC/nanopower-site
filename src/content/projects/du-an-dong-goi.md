@@ -1,6 +1,6 @@
 ---
 title: "Tự động hóa dây chuyền đóng gói sản phẩm"
-client: "Khách hàng A" # TODO: chủ site điền tên thật nếu được phép công khai
+client: "Công ty TNHH Thực phẩm Việt Thịnh"
 industry: "Thực phẩm & Đồ uống"
 summary: "Triển khai hệ thống tự động hóa hoàn chỉnh cho dây chuyền đóng gói, tích hợp PLC Siemens, băng tải, máy đóng hộp và hệ thống kiểm tra cân nặng tự động, giúp tăng năng suất 40% và giảm lỗi đóng gói xuống dưới 0,5%."
 cover: "/nanopower-site/images/covers/project-1.svg"

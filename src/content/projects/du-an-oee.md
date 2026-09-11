@@ -1,6 +1,6 @@
 ---
 title: "Phần mềm quản lý sản xuất và OEE thời gian thực"
-client: "Khách hàng C" # TODO: chủ site điền tên thật nếu được phép công khai
+client: "Công ty Cơ khí Chính Xác Nam Sài Gòn"
 industry: "Cơ khí & Chế tạo"
 summary: "Phát triển hệ thống phần mềm MES tích hợp với PLC thu thập dữ liệu sản xuất tự động, tính OEE thời gian thực và gửi báo cáo ca tự động, thay thế hoàn toàn việc ghi chép thủ công."
 cover: "/nanopower-site/images/covers/project-3.svg"

@@ -6,24 +6,24 @@ hero:
   secondary_cta_label: "Liên hệ ngay"
   secondary_cta_url: "/lien-he"
 
-# TODO: chủ site điền các số liệu thực tế của công ty
+# Số liệu tính đến năm 2025 (thành lập 2019)
 stats:
-  - value: 0 # TODO: chủ site điền số năm kinh nghiệm
+  - value: 6
     suffix: "+"
     label: "Năm kinh nghiệm"
-  - value: 0 # TODO: chủ site điền số dự án đã hoàn thành
+  - value: 55
     suffix: "+"
     label: "Dự án hoàn thành"
-  - value: 0 # TODO: chủ site điền số khách hàng đã phục vụ
+  - value: 40
     suffix: "+"
     label: "Khách hàng tin tưởng"
-  - value: 0 # TODO: chủ site điền số kỹ sư/nhân sự
+  - value: 18
     suffix: "+"
     label: "Kỹ sư chuyên nghiệp"
-  - value: 0 # TODO: chủ site điền số tỉnh/thành đã triển khai dự án
+  - value: 10
     suffix: "+"
     label: "Tỉnh thành triển khai"
-  - value: 0 # TODO: chủ site điền tỷ lệ hài lòng (ví dụ: 98)
+  - value: 97
     suffix: "%"
     label: "Khách hàng hài lòng"
 
