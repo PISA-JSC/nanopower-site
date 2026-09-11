@@ -6,123 +6,158 @@ const site = loadYaml<SiteData>('site.yml');
 
 const navLinks = [
   { label: 'Giới thiệu', href: url('/gioi-thieu') },
-  { label: 'Giải pháp', href: url('/giai-phap') },
-  { label: 'Dự án', href: url('/du-an') },
-  { label: 'Tin tức', href: url('/tin-tuc') },
+  { label: 'Giải pháp',  href: url('/giai-phap') },
+  { label: 'Dự án',      href: url('/du-an') },
+  { label: 'Tin tức',    href: url('/tin-tuc') },
   { label: 'Tuyển dụng', href: url('/tuyen-dung') },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
+<!-- ── Sticky header ─────────────────────────────────────────── -->
 <header
   id="site-header"
-  class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-shadow duration-300"
+  class="sticky top-0 z-50 bg-white border-b border-slate-200 transition-shadow duration-200"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 md:h-20">
+    <div class="flex items-center justify-between h-16 md:h-[72px]">
 
-      <!-- Logo + Brand -->
-      <a href={url('/')} class="flex items-center gap-3 shrink-0 group" aria-label="Nano Power — Trang chủ">
+      <!-- Logo -->
+      <a href={url('/')} class="flex items-center gap-2.5 shrink-0 group min-w-[44px] min-h-[44px]" aria-label="Nano Power — Trang chủ">
         <img
           src={url('/favicon.svg')}
-          alt="Nano Power logo"
-          class="h-10 w-10 object-contain"
-          width="40"
-          height="40"
+          alt=""
+          class="h-9 w-9 object-contain"
+          width="36"
+          height="36"
         />
-        <span class="font-serif font-bold text-xl text-brand-800 group-hover:text-brand-600 transition-colors">
+        <span class="font-bold text-[1.0625rem] text-ink tracking-tight group-hover:text-brand-700 transition-colors">
           Nano Power
         </span>
       </a>
 
       <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-1">
-        {navLinks.map(link => (
-          <a
-            href={link.href}
-            class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              currentPath.startsWith(link.href.replace(url('/'), url('/').replace(/\/$/, '')))
-                ? 'text-brand-700 bg-brand-50'
-                : 'text-ink hover:text-brand-700 hover:bg-brand-50'
-            }`}
-          >
-            {link.label}
-          </a>
-        ))}
+      <nav class="hidden md:flex items-center gap-0.5" aria-label="Điều hướng chính">
+        {navLinks.map(link => {
+          const active = currentPath.startsWith(link.href.replace(/\/$/, ''));
+          return (
+            <a
+              href={link.href}
+              class={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-150 ${
+                active
+                  ? 'text-brand-700 bg-brand-50'
+                  : 'text-slate-600 hover:text-ink hover:bg-slate-50'
+              }`}
+            >
+              {link.label}
+            </a>
+          );
+        })}
       </nav>
 
       <!-- CTA + hamburger -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2">
         <a
           href={url('/lien-he')}
-          class="hidden sm:inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
+          class="hidden sm:inline-flex items-center gap-1.5 bg-brand-700 hover:bg-brand-800 active:bg-brand-800 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors duration-150"
         >
           Liên hệ
         </a>
 
-        <!-- Mobile hamburger -->
         <button
           id="mobile-menu-btn"
-          class="md:hidden p-2 rounded-lg text-ink hover:bg-gray-100 transition-colors"
-          aria-label="Mở menu"
+          class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+          aria-label="Mở menu điều hướng"
           aria-expanded="false"
           aria-controls="mobile-menu"
         >
-          <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
       </div>
     </div>
   </div>
-
-  <!-- Mobile menu -->
-  <div
-    id="mobile-menu"
-    class="md:hidden hidden border-t border-gray-100 bg-white"
-    aria-hidden="true"
-  >
-    <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
-      {navLinks.map(link => (
-        <a
-          href={link.href}
-          class="px-4 py-3 rounded-lg text-sm font-medium text-ink hover:text-brand-700 hover:bg-brand-50 transition-colors"
-        >
-          {link.label}
-        </a>
-      ))}
-      <a
-        href={url('/lien-he')}
-        class="mt-2 text-center bg-brand-700 hover:bg-brand-600 text-white text-sm font-semibold px-5 py-3 rounded-lg transition-colors"
-      >
-        Liên hệ ngay
-      </a>
-    </nav>
-  </div>
 </header>
 
-<script>
-  const btn = document.getElementById('mobile-menu-btn')!;
-  const menu = document.getElementById('mobile-menu')!;
-  const iconMenu = document.getElementById('icon-menu')!;
-  const iconClose = document.getElementById('icon-close')!;
+<!-- ── Full-screen mobile overlay ───────────────────────────── -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-[60] hidden bg-white flex flex-col"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menu điều hướng"
+>
+  <!-- Top bar -->
+  <div class="flex items-center justify-between px-4 h-16 border-b border-slate-100">
+    <a href={url('/')} class="flex items-center gap-2.5" aria-label="Nano Power">
+      <img src={url('/favicon.svg')} alt="" class="h-9 w-9" width="36" height="36" />
+      <span class="font-bold text-[1.0625rem] text-ink">Nano Power</span>
+    </a>
+    <button
+      id="mobile-close-btn"
+      class="w-10 h-10 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 transition-colors"
+      aria-label="Đóng menu"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
 
-  btn.addEventListener('click', () => {
-    const isOpen = !menu.classList.contains('hidden');
-    menu.classList.toggle('hidden', isOpen);
-    menu.setAttribute('aria-hidden', String(isOpen));
-    btn.setAttribute('aria-expanded', String(!isOpen));
-    iconMenu.classList.toggle('hidden', !isOpen);
-    iconClose.classList.toggle('hidden', isOpen);
+  <!-- Nav links -->
+  <nav class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-0.5">
+    {navLinks.map(link => (
+      <a
+        href={link.href}
+        class="flex items-center h-14 px-4 rounded-xl text-base font-medium text-ink hover:bg-slate-50 transition-colors"
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+
+  <!-- Bottom CTA -->
+  <div class="px-4 pb-10 pt-4 border-t border-slate-100">
+    <a
+      href={url('/lien-he')}
+      class="flex items-center justify-center h-14 w-full bg-brand-700 hover:bg-brand-800 text-white font-semibold rounded-xl transition-colors text-base"
+    >
+      Liên hệ ngay
+    </a>
+  </div>
+</div>
+
+<script>
+  const headerEl  = document.getElementById('site-header')!;
+  const menuEl    = document.getElementById('mobile-menu')!;
+  const openBtn   = document.getElementById('mobile-menu-btn')!;
+  const closeBtn  = document.getElementById('mobile-close-btn')!;
+
+  const openMenu = () => {
+    menuEl.classList.remove('hidden');
+    openBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  };
+
+  const closeMenu = () => {
+    menuEl.classList.add('hidden');
+    openBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    openBtn.focus();
+  };
+
+  openBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !menuEl.classList.contains('hidden')) closeMenu();
   });
 
-  // Add shadow on scroll
-  const header = document.getElementById('site-header')!;
+  // Subtle shadow when page scrolls
   window.addEventListener('scroll', () => {
-    header.classList.toggle('shadow-md', window.scrollY > 10);
+    headerEl.classList.toggle('shadow-sm', window.scrollY > 8);
   }, { passive: true });
 </script>

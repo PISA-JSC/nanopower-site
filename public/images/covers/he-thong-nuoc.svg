@@ -1,15 +1,15 @@
 ﻿<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bghe-thong-nuoc" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#18751A"/>
-      <stop offset="100%" stop-color="#0A3A0A"/>
+    <linearGradient id="ga85415d9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
     </linearGradient>
-    <pattern id="hexhe-thong-nuoc" x="0" y="0" width="80" height="69.28" patternUnits="userSpaceOnUse">
-      <polygon points="40,2 78,22 78,62 40,82 2,62 2,22" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <pattern id="p6bb785ee" x="0" y="0" width="80" height="69.28" patternUnits="userSpaceOnUse">
+      <polygon points="40,2 78,22 78,56 40,76 2,56 2,22" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>
     </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#bghe-thong-nuoc)"/>
-  <rect width="1200" height="630" fill="url(#hexhe-thong-nuoc)"/>
-  <circle cx="600" cy="315" r="320" fill="rgba(41,194,44,0.13)"/>
-  <circle cx="500" cy="150" r="160" fill="rgba(41,194,44,0.08)"/>
+  <rect width="1200" height="630" fill="url(#ga85415d9)"/>
+  <rect width="1200" height="630" fill="url(#p6bb785ee)" opacity="0.5"/>
+  <circle cx="150" cy="400" r="280" fill="rgba(24,117,26,0.08)"/>
+  <circle cx="300" cy="150" r="126" fill="rgba(24,117,26,0.05)"/>
 </svg>

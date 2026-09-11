@@ -1,15 +1,15 @@
 ﻿<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgpost-nuoc" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#18751A"/>
-      <stop offset="100%" stop-color="#0A3A0A"/>
+    <linearGradient id="g4f84494e" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
     </linearGradient>
-    <pattern id="hexpost-nuoc" x="0" y="0" width="80" height="69.28" patternUnits="userSpaceOnUse">
-      <polygon points="40,2 78,22 78,62 40,82 2,62 2,22" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <pattern id="p36ade95f" x="0" y="0" width="80" height="69.28" patternUnits="userSpaceOnUse">
+      <polygon points="40,2 78,22 78,56 40,76 2,56 2,22" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>
     </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgpost-nuoc)"/>
-  <rect width="1200" height="630" fill="url(#hexpost-nuoc)"/>
-  <circle cx="700" cy="200" r="300" fill="rgba(41,194,44,0.13)"/>
-  <circle cx="800" cy="500" r="150" fill="rgba(41,194,44,0.08)"/>
+  <rect width="1200" height="630" fill="url(#g4f84494e)"/>
+  <rect width="1200" height="630" fill="url(#p36ade95f)" opacity="0.5"/>
+  <circle cx="700" cy="150" r="300" fill="rgba(34,160,36,0.08)"/>
+  <circle cx="850" cy="500" r="135" fill="rgba(34,160,36,0.05)"/>
 </svg>

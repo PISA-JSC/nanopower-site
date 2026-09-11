@@ -5,22 +5,22 @@ const home = loadYaml<HomeData>('home.yml');
 const { stats } = home;
 ---
 
-<section class="bg-brand-800 text-white py-16 overflow-hidden">
+<section class="bg-canvas py-16 lg:py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-10 gap-x-6 text-center">
       {stats.map((stat, i) => (
         <div class="flex flex-col items-center">
-          <div class="flex items-baseline gap-0.5 mb-2">
+          <div class="flex items-baseline gap-0.5 mb-1.5">
             <span
-              class="font-serif font-bold text-4xl text-white counter"
+              class="font-bold text-[2.625rem] leading-none text-white counter"
               data-target={stat.value}
               data-index={i}
             >
               {stat.value}
             </span>
-            <span class="font-bold text-xl text-brand-300">{stat.suffix}</span>
+            <span class="font-semibold text-xl text-brand-500">{stat.suffix}</span>
           </div>
-          <p class="text-brand-200 text-sm font-medium">{stat.label}</p>
+          <p class="text-slate-400 text-sm font-medium">{stat.label}</p>
         </div>
       ))}
     </div>
@@ -28,37 +28,33 @@ const { stats } = home;
 </section>
 
 <script>
-  // Counter animation on scroll into view
   const counters = document.querySelectorAll<HTMLElement>('.counter');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const animate = (el: HTMLElement) => {
-    const target = parseInt(el.dataset.target ?? '0', 10);
-    if (target === 0) return;
-
-    const duration = 1800;
-    const start = performance.now();
-
-    const step = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      el.textContent = Math.floor(ease * target).toString();
-      if (progress < 1) requestAnimationFrame(step);
+  if (prefersReduced) {
+    counters.forEach(el => { el.textContent = el.dataset.target ?? '0'; });
+  } else {
+    const animate = (el: HTMLElement) => {
+      const target = parseInt(el.dataset.target ?? '0', 10);
+      if (target === 0) return;
+      const duration = 1500;
+      const start = performance.now();
+      const step = (now: number) => {
+        const t = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.floor(ease * target).toString();
+        if (t < 1) requestAnimationFrame(step);
+        else el.textContent = target.toString();
+      };
+      requestAnimationFrame(step);
     };
 
-    requestAnimationFrame(step);
-  };
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animate(entry.target as HTMLElement);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  counters.forEach(counter => observer.observe(counter));
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { animate(e.target as HTMLElement); io.unobserve(e.target); }
+      }),
+      { threshold: 0.4 }
+    );
+    counters.forEach(c => io.observe(c));
+  }
 </script>

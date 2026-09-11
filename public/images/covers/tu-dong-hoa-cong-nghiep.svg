@@ -1,16 +1,15 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+﻿<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#18751A"/>
-      <stop offset="100%" stop-color="#0A3A0A"/>
+    <linearGradient id="gcfa70b48" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
     </linearGradient>
-    <pattern id="hex" x="0" y="0" width="80" height="69.28" patternUnits="userSpaceOnUse">
-      <polygon points="40,2 78,22 78,62 40,82 2,62 2,22" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <pattern id="p213855d8" x="0" y="0" width="80" height="69.28" patternUnits="userSpaceOnUse">
+      <polygon points="40,2 78,22 78,56 40,76 2,56 2,22" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>
     </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#hex)"/>
-  <circle cx="950" cy="315" r="280" fill="rgba(41,194,44,0.12)"/>
-  <circle cx="1050" cy="200" r="140" fill="rgba(41,194,44,0.08)"/>
-  <text x="120" y="420" font-family="Georgia, serif" font-size="72" font-weight="700" fill="rgba(255,255,255,0.15)">⚙️</text>
+  <rect width="1200" height="630" fill="url(#gcfa70b48)"/>
+  <rect width="1200" height="630" fill="url(#p213855d8)" opacity="0.5"/>
+  <circle cx="950" cy="150" r="320" fill="rgba(34,160,36,0.08)"/>
+  <circle cx="800" cy="480" r="144" fill="rgba(34,160,36,0.05)"/>
 </svg>
