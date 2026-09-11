@@ -11,7 +11,7 @@ draft: false
 ---
 ## Bối cảnh dự án
 
-Khách hàng B là khu công nghiệp có trạm xử lý nước thải tập trung phải tuân thủ nghiêm ngặt QCVN 40:2011/BTNMT. Hệ thống giám sát cũ dựa trên lấy mẫu thủ công không đảm bảo phát hiện kịp thời khi có sự cố trong quy trình xử lý.
+KCN Long Hậu là khu công nghiệp có trạm xử lý nước thải tập trung phải tuân thủ nghiêm ngặt QCVN 40:2011/BTNMT. Hệ thống giám sát cũ dựa trên lấy mẫu thủ công không đảm bảo phát hiện kịp thời khi có sự cố trong quy trình xử lý.
 
 ## Giải pháp triển khai
 
