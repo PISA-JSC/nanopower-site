@@ -3,7 +3,7 @@ title: "IoT & Giám sát từ xa"
 summary: "Kết nối thiết bị, thu thập dữ liệu và giám sát hạ tầng từ xa thời gian thực — cảnh báo thông minh, phân tích xu hướng và ra quyết định dựa trên dữ liệu thực tế."
 icon: "📡"
 order: 6
-cover: "/images/service-iot-card.jpg"
+cover: "/images/iot-solution.jpg"
 features:
   - "Thiết kế và sản xuất thiết bị IoT tùy chỉnh"
   - "Gateway kết nối cảm biến với cloud/server"
