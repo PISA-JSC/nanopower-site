@@ -3,7 +3,7 @@ title: "Thiết kế và sản xuất thiết bị IoT đo môi trường"
 client: "Hợp tác xã Nông nghiệp Công nghệ cao Đà Lạt"
 industry: "Môi trường & Nông nghiệp"
 summary: "Thiết kế phần cứng và firmware cho thiết bị IoT đo nhiệt độ, độ ẩm, ánh sáng và CO₂ trong nhà kính trồng rau, kết nối LoRaWAN, pin hoạt động 2 năm, sản xuất 50 thiết bị đợt đầu."
-cover: "/images/service-iot-card.jpg"
+cover: "/images/project-thuy-hai-san.jpg"
 year: 2023
 results:
   - "Thiết bị hoạt động ổn định 18 tháng sau bàn giao, không cần thay pin"
