@@ -6,7 +6,7 @@ interface Props {
   solution: CollectionEntry<'solutions'>;
 }
 const { solution } = Astro.props;
-const { title, summary } = solution.data;
+const { title, summary, cover } = solution.data;
 const slug = solution.id;
 
 /* SVG icon paths keyed by solution slug — stroke-based, 24×24 viewBox */
@@ -41,41 +41,53 @@ const svgPath = iconPaths[slug] ?? `<circle cx="12" cy="12" r="5"/><line x1="12"
 
 <a
   href={url(`/giai-phap/${slug}`)}
-  class="group relative flex flex-col gap-5 p-6 bg-white rounded-[var(--radius-card)] border border-slate-100
+  class="group flex flex-col bg-white rounded-[var(--radius-card)] border border-slate-100 overflow-hidden
          hover:border-brand-200/60 hover:shadow-[var(--shadow-card-hover)]
          hover:-translate-y-[2px] transition-all duration-200"
 >
-  <!-- Icon container — brand tint -->
-  <div class="w-11 h-11 rounded-xl bg-brand-50 group-hover:bg-brand-100/80 flex items-center justify-center transition-colors duration-150 shrink-0">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.75"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="w-5 h-5 text-brand-700"
-      set:html={svgPath}
+  <!-- Cover image — 16:9 -->
+  <figure class="aspect-[16/9] overflow-hidden shrink-0 bg-slate-100">
+    <img
+      src={cover}
+      alt={title}
+      class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
+      loading="lazy"
+      width="640"
+      height="360"
     />
-  </div>
+  </figure>
 
-  <div class="flex-1">
-    <h3 class="font-semibold text-[0.9375rem] text-ink group-hover:text-brand-700 transition-colors duration-150 mb-2 leading-snug">
-      {title}
-    </h3>
-    <p class="text-slate-500 text-sm leading-relaxed line-clamp-3">
+  <!-- Content -->
+  <div class="flex flex-col gap-4 p-5">
+    <div class="flex items-center gap-3">
+      <!-- SVG icon in brand pill -->
+      <div class="w-9 h-9 rounded-lg bg-brand-50 group-hover:bg-brand-100/80 flex items-center justify-center transition-colors duration-150 shrink-0">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-4 h-4 text-brand-700"
+          set:html={svgPath}
+        />
+      </div>
+      <h3 class="font-semibold text-[0.9375rem] text-ink group-hover:text-brand-700 transition-colors duration-150 leading-snug line-clamp-2">
+        {title}
+      </h3>
+    </div>
+
+    <p class="text-slate-500 text-sm leading-relaxed line-clamp-2 flex-1">
       {summary}
     </p>
-  </div>
 
-  <div class="flex items-center gap-1 text-brand-700 text-xs font-semibold">
-    Xem chi tiết
-    <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M9 5l7 7-7 7"/>
-    </svg>
+    <div class="flex items-center gap-1 text-brand-700 text-xs font-semibold">
+      Xem chi tiết
+      <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 5l7 7-7 7"/>
+      </svg>
+    </div>
   </div>
-
-  <!-- Subtle bottom accent on hover -->
-  <div class="absolute bottom-0 left-6 right-6 h-[2px] bg-brand-500/0 group-hover:bg-brand-500/20 rounded-full transition-all duration-200"></div>
 </a>

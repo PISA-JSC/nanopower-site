@@ -33,16 +33,27 @@ const { Content } = await render(solution);
     </div>
   </div>
 
-  <!-- Hero -->
-  <section class="relative bg-canvas text-white overflow-hidden">
+  <!-- Hero — cinema style: full-bleed photo, text overlaid at bottom -->
+  <section class="relative bg-canvas text-white overflow-hidden min-h-[56vh] flex items-end">
+    <!-- Photo fills the section at full opacity -->
     <figure class="absolute inset-0">
-      <img src={cover} alt={title} class="w-full h-full object-cover opacity-30" width="1200" height="630" loading="eager" />
-      <div class="absolute inset-0 bg-gradient-to-b from-canvas/60 to-canvas/90"></div>
+      <img
+        src={cover}
+        alt={title}
+        class="w-full h-full object-cover"
+        width="1400"
+        height="700"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <!-- Gradient: transparent top → canvas bottom for text readability -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-canvas/40 to-canvas/90"></div>
     </figure>
-    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+    <!-- Text sits at the bottom of the photo -->
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-48 text-center w-full">
       <div class="text-5xl mb-4" aria-hidden="true">{icon}</div>
       <h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-4">{title}</h1>
-      <p class="text-slate-300 text-xl max-w-2xl mx-auto leading-relaxed">{summary}</p>
+      <p class="text-slate-200 text-xl max-w-2xl mx-auto leading-relaxed">{summary}</p>
     </div>
   </section>
 
