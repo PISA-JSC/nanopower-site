@@ -3,7 +3,7 @@ title: "Tự động hóa dây chuyền đóng gói sản phẩm"
 client: "Công ty TNHH Thực phẩm Việt Thịnh"
 industry: "Thực phẩm & Đồ uống"
 summary: "Triển khai hệ thống tự động hóa hoàn chỉnh cho dây chuyền đóng gói, tích hợp PLC Siemens, băng tải, máy đóng hộp và hệ thống kiểm tra cân nặng tự động, giúp tăng năng suất 40% và giảm lỗi đóng gói xuống dưới 0,5%."
-cover: "/images/project-thuc-pham.jpg"
+cover: "/images/case-study-du-an-dong-goi-cover.jpg"
 year: 2024
 results:
   - "Năng suất tăng 40% (từ 800 lên 1.120 sản phẩm/giờ)"

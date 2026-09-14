@@ -5,7 +5,7 @@ industry: Môi trường & Xử lý nước
 summary: Xây dựng hệ thống giám sát liên tục các thông số nước thải trước xả ra
   môi trường, tích hợp cảnh báo tự động và báo cáo tuân thủ QCVN, giúp doanh
   nghiệp chủ động quản lý môi trường và tránh vi phạm.
-cover: /images/project-xu-ly-nuoc-thai.jpg
+cover: /images/case-study-du-an-nuoc-thai-cover.jpg
 year: 2024
 results:
   - "Giám sát liên tục 8 thông số chất lượng nước thải 24/7"
