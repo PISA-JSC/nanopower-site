@@ -54,67 +54,42 @@ const { stats } = home;
         </div>
       </div>
 
-      <!-- ── Right: hex cluster decoration ──────────────────── -->
-      <div class="hidden lg:block relative select-none" aria-hidden="true">
-        <div class="relative w-full aspect-square">
+      <!-- ── Right: real factory photo ──────────────────────── -->
+      <div class="hidden lg:block relative">
+        <!-- Photo frame with subtle green glow ring -->
+        <div class="relative rounded-[1.25rem] overflow-hidden aspect-[4/3] shadow-[0_0_80px_rgba(41,194,44,0.15)] ring-1 ring-white/10">
+          <img
+            src={url('/images/hero-banner-tu-dong-hoa.jpg')}
+            alt="Hệ thống tự động hóa nhà máy hiện đại"
+            class="w-full h-full object-cover"
+            width="900"
+            height="675"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <!-- Bottom gradient for chip readability -->
+          <div class="absolute inset-0 bg-gradient-to-t from-canvas/55 via-canvas/10 to-transparent pointer-events-none"></div>
 
-          <!-- Hex SVG — concentric outlines + inner cluster -->
-          <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full">
-            <!-- Concentric hex outlines (pointy-top, R = 210/165/120) -->
-            <polygon points="240,30 422,135 422,345 240,450 58,345 58,135"
-              stroke="rgba(41,194,44,0.12)" stroke-width="1.5"/>
-            <polygon points="240,75 403,158 403,322 240,405 77,322 77,158"
-              stroke="rgba(41,194,44,0.09)" stroke-width="1"/>
-            <polygon points="240,120 384,181 384,299 240,360 96,299 96,181"
-              stroke="rgba(41,194,44,0.06)" stroke-width="1"/>
-
-            <!-- Center cluster — 7 hexes (pointy-top, r=30) -->
-            <!-- Center -->
-            <polygon points="240,210 266,225 266,255 240,270 214,255 214,225" fill="rgba(41,194,44,0.32)"/>
-            <!-- Right -->
-            <polygon points="292,210 318,225 318,255 292,270 266,255 266,225" fill="rgba(41,194,44,0.16)"/>
-            <!-- Upper-right -->
-            <polygon points="266,165 292,180 292,210 266,225 240,210 240,180" fill="rgba(41,194,44,0.22)"/>
-            <!-- Upper-left -->
-            <polygon points="214,165 240,180 240,210 214,225 188,210 188,180" fill="rgba(41,194,44,0.13)"/>
-            <!-- Left -->
-            <polygon points="188,210 214,225 214,255 188,270 162,255 162,225" fill="rgba(41,194,44,0.09)"/>
-            <!-- Lower-left -->
-            <polygon points="214,255 240,270 240,300 214,315 188,300 188,270" fill="rgba(41,194,44,0.17)"/>
-            <!-- Lower-right -->
-            <polygon points="266,255 292,270 292,300 266,315 240,300 240,270" fill="rgba(41,194,44,0.12)"/>
-
-            <!-- Second ring (partial) -->
-            <polygon points="240,120 266,135 266,165 240,180 214,165 214,135" fill="rgba(41,194,44,0.07)"/>
-            <polygon points="292,120 318,135 318,165 292,180 266,165 266,135" fill="rgba(41,194,44,0.05)"/>
-            <polygon points="344,210 370,225 370,255 344,270 318,255 318,225" fill="rgba(41,194,44,0.06)"/>
-            <polygon points="318,255 344,270 344,300 318,315 292,300 292,270" fill="rgba(41,194,44,0.04)"/>
-            <polygon points="266,300 292,315 292,345 266,360 240,345 240,315" fill="rgba(41,194,44,0.05)"/>
-            <polygon points="188,120 214,135 214,165 188,180 162,165 162,135" fill="rgba(41,194,44,0.04)"/>
-            <polygon points="136,210 162,225 162,255 136,270 110,255 110,225" fill="rgba(41,194,44,0.03)"/>
-
-            <!-- Glow layers behind cluster -->
-            <circle cx="240" cy="237" r="90"  fill="rgba(41,194,44,0.05)"/>
-            <circle cx="240" cy="237" r="45"  fill="rgba(41,194,44,0.07)"/>
-            <!-- Center dot -->
-            <circle cx="240" cy="240" r="4" fill="rgba(41,194,44,0.70)"/>
-            <circle cx="240" cy="240" r="2" fill="rgba(255,255,255,0.9)"/>
-          </svg>
-
-          <!-- Floating metric chips -->
-          <div class="absolute top-4 right-8 bg-white/[0.07] backdrop-blur-md border border-white/[0.12] rounded-2xl px-4 py-3 text-center min-w-[96px]">
-            <div class="text-[1.625rem] font-bold text-white leading-none">{stats[1]?.value}<span class="text-brand-500">{stats[1]?.suffix}</span></div>
-            <div class="text-[0.6875rem] text-slate-400 mt-1.5">{stats[1]?.label}</div>
+          <!-- Metric chip — top right -->
+          <div class="absolute top-4 right-4 bg-canvas/75 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-center min-w-[88px]">
+            <div class="text-[1.5rem] font-bold text-white leading-none tabular-nums">
+              {stats[1]?.value}<span class="text-brand-500 text-lg">{stats[1]?.suffix}</span>
+            </div>
+            <div class="text-[0.625rem] text-slate-400 mt-1 font-medium tracking-wide uppercase">{stats[1]?.label}</div>
           </div>
 
-          <div class="absolute bottom-12 left-4 bg-white/[0.07] backdrop-blur-md border border-white/[0.12] rounded-2xl px-4 py-3 text-center min-w-[104px]">
-            <div class="text-[1.625rem] font-bold text-white leading-none">{stats[5]?.value}<span class="text-brand-500">{stats[5]?.suffix}</span></div>
-            <div class="text-[0.6875rem] text-slate-400 mt-1.5">{stats[5]?.label}</div>
+          <!-- Metric chip — bottom left -->
+          <div class="absolute bottom-4 left-4 bg-canvas/75 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-center min-w-[100px]">
+            <div class="text-[1.5rem] font-bold text-white leading-none tabular-nums">
+              {stats[5]?.value}<span class="text-brand-500 text-lg">{stats[5]?.suffix}</span>
+            </div>
+            <div class="text-[0.625rem] text-slate-400 mt-1 font-medium tracking-wide uppercase">{stats[5]?.label}</div>
           </div>
 
-          <div class="absolute top-[44%] right-0 translate-x-2 bg-white/[0.07] backdrop-blur-md border border-white/[0.12] rounded-xl px-3 py-2.5 flex items-center gap-2">
+          <!-- Online indicator — bottom right -->
+          <div class="absolute bottom-4 right-4 bg-canvas/75 backdrop-blur-md border border-white/10 rounded-lg px-3 py-2 flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse shrink-0"></span>
-            <span class="text-[0.6875rem] text-slate-300 font-medium whitespace-nowrap">Hệ thống trực tuyến</span>
+            <span class="text-[0.6875rem] text-slate-300 font-medium">Hệ thống trực tuyến</span>
           </div>
         </div>
       </div>

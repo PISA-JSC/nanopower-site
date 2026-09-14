@@ -3,7 +3,7 @@ title: "Thiết kế & Sản xuất phần cứng"
 summary: "Từ ý tưởng đến sản phẩm phần cứng hoàn chỉnh — thiết kế mạch điện tử, lập trình firmware, sản xuất PCB và dịch vụ OEM/ODM theo yêu cầu."
 icon: "🔌"
 order: 3
-cover: "/nanopower-site/images/covers/thiet-ke-phan-cung.svg"
+cover: "/nanopower-site/images/service-phan-cung-card.jpg"
 features:
   - "Thiết kế sơ đồ nguyên lý (schematic) và layout PCB"
   - "Sản xuất PCB prototype và hàng loạt (SMT/THT)"

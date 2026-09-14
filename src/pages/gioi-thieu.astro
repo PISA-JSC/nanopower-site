@@ -54,10 +54,10 @@ const site = loadYaml<SiteData>('site.yml');
             </p>
           </div>
         </div>
-        <div class="rounded-card overflow-hidden shadow-[var(--shadow-card-hover)]">
+        <div class="rounded-[var(--radius-card)] overflow-hidden shadow-[var(--shadow-card-hover)]">
           <img
-            src={url('/images/covers/gioi-thieu-cover.svg')}
-            alt="Đội ngũ Nano Power"
+            src={url('/images/feature-giai-phap-tich-hop.jpg')}
+            alt="Hệ thống giải pháp tích hợp của Nano Power"
             class="w-full aspect-[16/10] object-cover"
             width="640"
             height="400"
@@ -68,7 +68,7 @@ const site = loadYaml<SiteData>('site.yml');
   </section>
 
   <!-- Sứ mệnh, tầm nhìn, giá trị -->
-  <section class="py-20 bg-brand-50">
+  <section class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <SectionHeading title="Sứ mệnh & Tầm nhìn" center={true} />
       <div class="grid md:grid-cols-3 gap-8">
@@ -89,10 +89,10 @@ const site = loadYaml<SiteData>('site.yml');
             text: 'Chính trực trong tư vấn — Sáng tạo trong giải pháp — Chuyên nghiệp trong thực thi — Đồng hành trong sau bàn giao.',
           },
         ].map(item => (
-          <div class="bg-white rounded-card p-8 shadow-[var(--shadow-card)] text-center">
+          <div class="bg-white rounded-[var(--radius-card)] p-8 shadow-[var(--shadow-card)] text-center">
             <div class="text-4xl mb-4">{item.icon}</div>
-            <h3 class="font-serif font-bold text-xl text-ink mb-3">{item.title}</h3>
-            <p class="text-muted text-sm leading-relaxed">{item.text}</p>
+            <h3 class="font-bold text-xl text-ink mb-3">{item.title}</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">{item.text}</p>
           </div>
         ))}
       </div>
@@ -101,9 +101,43 @@ const site = loadYaml<SiteData>('site.yml');
 
   <!-- Thông tin công ty -->
   <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Feature image + process teaser -->
+      <div class="grid lg:grid-cols-[1fr_1fr] gap-12 items-center mb-16">
+        <div class="rounded-[var(--radius-card)] overflow-hidden shadow-[var(--shadow-card-hover)]">
+          <img
+            src={url('/images/feature-cam-ket-tien-do.jpg')}
+            alt="Quy trình quản lý dự án chuyên nghiệp tại Nano Power"
+            class="w-full aspect-[4/3] object-cover"
+            width="640"
+            height="480"
+            loading="lazy"
+          />
+        </div>
+        <div>
+          <SectionHeading
+            label="Cam kết của chúng tôi"
+            title="Minh bạch. Đúng tiến độ. Đúng chất lượng."
+          />
+          <p class="text-slate-500 leading-relaxed mb-6">
+            Mọi dự án tại Nano Power được quản lý theo quy trình bài bản với Gantt chart, milestone rõ ràng và báo cáo tiến độ định kỳ. Khách hàng luôn biết dự án đang ở đâu và sẽ đến đâu.
+          </p>
+          <ul class="space-y-3">
+            {['Báo cáo tiến độ hàng tuần', 'Kiểm thử và nghiệm thu từng giai đoạn', 'Tài liệu kỹ thuật bàn giao đầy đủ', 'Bảo trì và hỗ trợ sau bàn giao'].map(item => (
+              <li class="flex items-center gap-3 text-sm text-slate-600">
+                <svg class="w-4 h-4 text-brand-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
       <SectionHeading title="Thông tin công ty" center={true} />
-      <div class="bg-brand-50 rounded-card p-8 shadow-[var(--shadow-card)]">
+      <div class="max-w-4xl mx-auto">
+      <div class="bg-slate-50 rounded-[var(--radius-card)] p-8 shadow-[var(--shadow-card)]">
         <dl class="grid sm:grid-cols-2 gap-6">
           {[
             ['Tên đầy đủ', site.company_name],
@@ -120,6 +154,7 @@ const site = loadYaml<SiteData>('site.yml');
           ))}
         </dl>
       </div>
+      </div><!-- /max-w-4xl -->
     </div>
   </section>
 
