@@ -2,7 +2,7 @@
 title: "Từ ý tưởng tới sản phẩm: quy trình thiết kế mạch điện tử OEM/ODM"
 description: "Thiết kế mạch điện tử từ ý tưởng đến sản phẩm thực tế là một hành trình phức tạp với nhiều giai đoạn. Bài viết này giải thích chi tiết quy trình OEM/ODM và những điều cần biết trước khi bắt đầu."
 date: 2024-12-05
-cover: "/images/covers/post-oem.svg"
+cover: "/images/news-quy-trinh-oem-odm.jpg"
 category: "kien-thuc"
 author: "Nano Power"
 draft: false

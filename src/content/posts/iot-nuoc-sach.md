@@ -2,7 +2,7 @@
 title: "IoT trong quản lý hạ tầng nước sạch tại Việt Nam"
 description: "Việt Nam đang đối mặt với thách thức lớn trong quản lý hạ tầng nước sạch: thất thoát nước cao, giám sát thủ công và phản ứng chậm với sự cố. IoT đang thay đổi bức tranh này."
 date: 2024-10-10
-cover: "/images/covers/post-iot.svg"
+cover: "/images/news-iot-nuoc-sach.jpg"
 category: "kien-thuc"
 author: "Nano Power"
 draft: false
