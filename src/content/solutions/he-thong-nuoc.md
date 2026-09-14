@@ -1,9 +1,9 @@
----
+﻿---
 title: "Hệ thống nước"
 summary: "Giải pháp xử lý nước, giám sát chất lượng nước thời gian thực và tự động hóa hệ thống cấp thoát nước cho nhà máy, khu công nghiệp và công trình dân dụng."
 icon: "💧"
 order: 5
-cover: "/nanopower-site/images/service-he-thong-nuoc-card.jpg"
+cover: "/images/service-he-thong-nuoc-card.jpg"
 features:
   - "Tự động hóa trạm bơm và hệ thống cấp nước"
   - "Hệ thống xử lý nước cấp và nước thải"

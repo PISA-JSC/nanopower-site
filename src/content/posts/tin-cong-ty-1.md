@@ -1,8 +1,8 @@
----
+﻿---
 title: "Nano Power chính thức khai trương văn phòng mới tại Quận 7, TP.HCM"
 description: "Sau 5 năm hoạt động, Nano Power khai trương văn phòng mới tại Số 14 Đường số 1, Phường Tân Thuận, Quận 7 — không gian làm việc rộng hơn, hiện đại hơn để phục vụ khách hàng tốt hơn."
 date: 2025-06-10
-cover: "/nanopower-site/images/covers/post-tin1.svg"
+cover: "/images/covers/post-tin1.svg"
 category: "tin-cong-ty"
 author: "Nano Power"
 draft: false

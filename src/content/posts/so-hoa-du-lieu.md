@@ -1,8 +1,8 @@
----
+﻿---
 title: "Vì sao doanh nghiệp sản xuất nên số hóa dữ liệu vận hành"
 description: "Dữ liệu vận hành là tài sản chiến lược của nhà máy, nhưng phần lớn đang được ghi tay vào sổ sách. Bài viết này giải thích tại sao số hóa là bước đi không thể trì hoãn."
 date: 2024-09-01
-cover: "/nanopower-site/images/covers/post-so-hoa.svg"
+cover: "/images/covers/post-so-hoa.svg"
 category: "kien-thuc"
 author: "Nano Power"
 draft: false

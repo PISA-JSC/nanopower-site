@@ -1,8 +1,8 @@
----
+﻿---
 title: "Nano Power hoàn thành hệ thống SCADA giám sát 3 trạm bơm tại Bình Dương"
 description: "Nano Power vừa nghiệm thu thành công hệ thống SCADA tích hợp giám sát và điều khiển từ xa 3 trạm bơm nước sạch cho một khu dân cư tại tỉnh Bình Dương, rút ngắn thời gian phản ứng sự cố từ 2 giờ xuống dưới 5 phút."
 date: 2025-04-22
-cover: "/nanopower-site/images/covers/post-tin2.svg"
+cover: "/images/covers/post-tin2.svg"
 category: "tin-cong-ty"
 author: "Nano Power"
 draft: false

@@ -1,11 +1,11 @@
----
+﻿---
 title: Hệ thống giám sát chất lượng nước thải công nghiệp
 client: Ban Quản lý KCN Long Hậu
 industry: Môi trường & Xử lý nước
 summary: Xây dựng hệ thống giám sát liên tục các thông số nước thải trước xả ra
   môi trường, tích hợp cảnh báo tự động và báo cáo tuân thủ QCVN, giúp doanh
   nghiệp chủ động quản lý môi trường và tránh vi phạm.
-cover: /nanopower-site/images/service-he-thong-nuoc-card.jpg
+cover: /images/service-he-thong-nuoc-card.jpg
 year: 2024
 results:
   - "Giám sát liên tục 8 thông số chất lượng nước thải 24/7"

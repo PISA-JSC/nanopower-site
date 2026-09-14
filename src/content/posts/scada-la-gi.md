@@ -1,8 +1,8 @@
----
+﻿---
 title: "SCADA là gì? Vai trò trong nhà máy sản xuất hiện đại"
 description: "SCADA (Supervisory Control and Data Acquisition) là hệ thống giám sát và thu thập dữ liệu đóng vai trò trung tâm trong tự động hóa nhà máy. Bài viết này giải thích rõ SCADA là gì và tại sao mọi nhà máy hiện đại đều cần nó."
 date: 2025-03-10
-cover: "/nanopower-site/images/covers/post-scada.svg"
+cover: "/images/covers/post-scada.svg"
 category: "kien-thuc"
 author: "Nano Power"
 draft: false

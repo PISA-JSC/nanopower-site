@@ -1,8 +1,8 @@
----
+﻿---
 title: "Tiết kiệm điện trong nhà máy: những điểm rò rỉ năng lượng hay bị bỏ qua"
 description: "Chi phí điện năng thường chiếm 20–40% chi phí vận hành nhà máy. Bài viết này chỉ ra những điểm rò rỉ năng lượng phổ biến nhất và cách khắc phục hiệu quả."
 date: 2024-11-20
-cover: "/nanopower-site/images/covers/post-tietkiem.svg"
+cover: "/images/covers/post-tietkiem.svg"
 category: "kien-thuc"
 author: "Nano Power"
 draft: false

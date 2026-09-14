@@ -1,9 +1,9 @@
----
+﻿---
 title: "Phần mềm quản lý sản xuất và OEE thời gian thực"
 client: "Công ty Cơ khí Chính Xác Nam Sài Gòn"
 industry: "Cơ khí & Chế tạo"
 summary: "Phát triển hệ thống phần mềm MES tích hợp với PLC thu thập dữ liệu sản xuất tự động, tính OEE thời gian thực và gửi báo cáo ca tự động, thay thế hoàn toàn việc ghi chép thủ công."
-cover: "/nanopower-site/images/service-phan-mem-card.jpg"
+cover: "/images/service-phan-mem-card.jpg"
 year: 2023
 results:
   - "Loại bỏ hoàn toàn việc ghi chép sản lượng thủ công (tiết kiệm 1h/ca/máy)"

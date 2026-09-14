@@ -1,8 +1,8 @@
----
+﻿---
 title: "5 chỉ số cần giám sát trong hệ thống xử lý nước công nghiệp"
 description: "Giám sát chất lượng nước hiệu quả bắt đầu bằng việc đo đúng chỉ số. Bài viết này giới thiệu 5 thông số quan trọng nhất trong hệ thống xử lý nước công nghiệp và cách diễn giải kết quả đo."
 date: 2025-01-15
-cover: "/nanopower-site/images/covers/post-nuoc.svg"
+cover: "/images/covers/post-nuoc.svg"
 category: "kien-thuc"
 author: "Nano Power"
 draft: false

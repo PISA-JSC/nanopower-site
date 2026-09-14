@@ -33,7 +33,7 @@ const jsonLd = {
 <Base
   title={title}
   description={description}
-  ogImage={cover}
+  ogImage={url(cover)}
   jsonLd={jsonLd}
 >
   <div class="bg-brand-50 border-b border-brand-100">
@@ -67,7 +67,7 @@ const jsonLd = {
     <!-- Cover image -->
     <figure class="mb-10 rounded-card overflow-hidden">
       <img
-        src={cover}
+        src={url(cover)}
         alt={title}
         class="w-full aspect-[1200/630] object-cover"
         loading="eager"

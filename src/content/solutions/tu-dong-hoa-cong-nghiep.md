@@ -1,9 +1,9 @@
----
+﻿---
 title: "Tự động hóa công nghiệp"
 summary: "Giải pháp tự động hóa dây chuyền sản xuất toàn diện với PLC, SCADA, HMI — giảm chi phí vận hành, nâng cao năng suất và đảm bảo chất lượng sản phẩm đồng đều."
 icon: "⚙️"
 order: 1
-cover: "/nanopower-site/images/service-tu-dong-hoa-card.jpg"
+cover: "/images/service-tu-dong-hoa-card.jpg"
 features:
   - "Lập trình PLC (Siemens, Mitsubishi, Omron, Delta)"
   - "Thiết kế và triển khai hệ thống SCADA/HMI"

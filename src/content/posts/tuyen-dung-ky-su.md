@@ -1,8 +1,8 @@
----
+﻿---
 title: "Tuyển dụng: Kỹ sư Tự động hóa"
 description: "Nano Power tuyển dụng Kỹ sư Tự động hóa có kinh nghiệm lập trình PLC/SCADA, đam mê giải quyết bài toán thực tế trong công nghiệp. Mức lương cạnh tranh, môi trường kỹ thuật chuyên nghiệp."
 date: 2025-08-01
-cover: "/nanopower-site/images/covers/post-tuyendung.svg"
+cover: "/images/covers/post-tuyendung.svg"
 category: "tuyen-dung"
 author: "Nano Power"
 draft: false

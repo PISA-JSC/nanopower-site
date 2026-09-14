@@ -1,9 +1,9 @@
----
+﻿---
 title: "Phát triển phần mềm"
 summary: "Xây dựng phần mềm quản lý, ứng dụng web, dashboard giám sát và hệ thống ERP/MES theo đặc thù nghiệp vụ — thiết thực, dễ dùng và có thể mở rộng."
 icon: "💻"
 order: 2
-cover: "/nanopower-site/images/service-phan-mem-card.jpg"
+cover: "/images/service-phan-mem-card.jpg"
 features:
   - "Phần mềm quản lý sản xuất (MES/MOM)"
   - "Dashboard giám sát thiết bị và dây chuyền"

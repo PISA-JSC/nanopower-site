@@ -1,8 +1,8 @@
----
+﻿---
 title: "PLC và vi điều khiển: chọn cái nào cho bài toán tự động hóa của bạn?"
 description: "PLC và vi điều khiển đều có thể điều khiển thiết bị công nghiệp, nhưng mỗi loại phù hợp với bài toán khác nhau. Bài viết phân tích chi tiết để giúp bạn lựa chọn đúng."
 date: 2025-02-20
-cover: "/nanopower-site/images/covers/post-plc.svg"
+cover: "/images/covers/post-plc.svg"
 category: "kien-thuc"
 author: "Nano Power"
 draft: false

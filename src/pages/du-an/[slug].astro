@@ -18,7 +18,7 @@ const { title, client, industry, summary, cover, year, results } = project.data;
 const { Content } = await render(project);
 ---
 
-<Base title={title} description={summary} ogImage={cover}>
+<Base title={title} description={summary} ogImage={url(cover)}>
   <div class="bg-brand-50 border-b border-brand-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
       <Breadcrumb items={[
@@ -31,7 +31,7 @@ const { Content } = await render(project);
 
   <!-- Hero image -->
   <section class="relative bg-brand-900 text-white overflow-hidden h-80">
-    <img src={cover} alt={title} class="absolute inset-0 w-full h-full object-cover opacity-30" width="1200" height="630" />
+    <img src={url(cover)} alt={title} class="absolute inset-0 w-full h-full object-cover opacity-30" width="1200" height="630" />
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-end pb-12">
       <div class="flex gap-3 mb-3">
         <span class="bg-brand-500/80 text-white text-xs font-semibold px-3 py-1 rounded-full">{industry}</span>

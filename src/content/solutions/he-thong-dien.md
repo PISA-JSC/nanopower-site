@@ -1,9 +1,9 @@
----
+﻿---
 title: "Hệ thống điện"
 summary: "Thiết kế và lắp đặt hệ thống điện công nghiệp, tủ điện điều khiển, hệ thống phân phối điện và giải pháp tiết kiệm năng lượng cho nhà máy và công trình."
 icon: "⚡"
 order: 4
-cover: "/nanopower-site/images/service-he-thong-dien-card.jpg"
+cover: "/images/service-he-thong-dien-card.jpg"
 features:
   - "Thiết kế tủ điện MCC, PCC, tủ điều khiển PLC"
   - "Hệ thống phân phối điện công nghiệp"

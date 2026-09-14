@@ -48,7 +48,7 @@ const svgPath = iconPaths[slug] ?? `<circle cx="12" cy="12" r="5"/><line x1="12"
   <!-- Cover image — 16:9 -->
   <figure class="aspect-[16/9] overflow-hidden shrink-0 bg-slate-100">
     <img
-      src={cover}
+      src={url(cover)}
       alt={title}
       class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
       loading="lazy"

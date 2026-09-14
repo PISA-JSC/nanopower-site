@@ -21,7 +21,7 @@ const { Content } = await render(solution);
 <Base
   title={title}
   description={summary}
-  ogImage={cover}
+  ogImage={url(cover)}
 >
   <div class="bg-brand-50 border-b border-brand-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -38,7 +38,7 @@ const { Content } = await render(solution);
     <!-- Photo fills the section at full opacity -->
     <figure class="absolute inset-0">
       <img
-        src={cover}
+        src={url(cover)}
         alt={title}
         class="w-full h-full object-cover"
         width="1400"
