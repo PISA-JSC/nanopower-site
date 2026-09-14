@@ -16,7 +16,7 @@ draft: false
 
 ## Bối cảnh dự án
 
-Khách hàng A là doanh nghiệp sản xuất thực phẩm với nhu cầu mở rộng công suất đóng gói để đáp ứng đơn hàng xuất khẩu tăng cao. Dây chuyền đóng gói hiện tại vận hành thủ công, tốc độ chậm và tỷ lệ lỗi cao do yếu tố con người.
+**Công ty TNHH Thực phẩm Việt Thịnh** là doanh nghiệp sản xuất thực phẩm với nhu cầu mở rộng công suất đóng gói để đáp ứng đơn hàng xuất khẩu tăng cao. Dây chuyền đóng gói vận hành thủ công, tốc độ chậm và tỷ lệ lỗi cao do yếu tố con người.
 
 ## Giải pháp triển khai
 

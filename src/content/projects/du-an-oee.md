@@ -16,7 +16,7 @@ draft: false
 
 ## Bối cảnh dự án
 
-Khách hàng C vận hành 12 máy CNC và 5 máy ép nhựa. Dữ liệu sản xuất được ghi tay vào phiếu, sau đó nhập vào Excel cuối ngày. Quản lý nhận báo cáo ngày hôm sau — khi đó đã quá muộn để can thiệp vào vấn đề của hôm qua.
+**Công ty Cơ khí Chính Xác Nam Sài Gòn** vận hành 12 máy CNC và 5 máy ép nhựa. Dữ liệu sản xuất được ghi tay vào phiếu, sau đó nhập vào Excel cuối ngày. Quản lý nhận báo cáo ngày hôm sau — khi đó đã quá muộn để can thiệp vào vấn đề của hôm qua.
 
 ## Giải pháp
 

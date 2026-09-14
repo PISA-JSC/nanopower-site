@@ -16,7 +16,7 @@ draft: false
 
 ## Bối cảnh dự án
 
-Khách hàng D vận hành trang trại nhà kính với yêu cầu giám sát vi khí hậu chính xác để tối ưu năng suất cây trồng. Các giải pháp nhập khẩu có chi phí cao và khó tùy chỉnh theo đặc thù trang trại Việt Nam.
+**Hợp tác xã Nông nghiệp Công nghệ cao Đà Lạt** vận hành trang trại nhà kính với yêu cầu giám sát vi khí hậu chính xác để tối ưu năng suất cây trồng. Các giải pháp nhập khẩu có chi phí cao và khó tùy chỉnh theo đặc thù trang trại Việt Nam.
 
 ## Giải pháp phần cứng
 

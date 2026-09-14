@@ -7,6 +7,12 @@ summary: Xây dựng hệ thống giám sát liên tục các thông số nướ
   nghiệp chủ động quản lý môi trường và tránh vi phạm.
 cover: /nanopower-site/images/covers/project-2.svg
 year: 2024
+results:
+  - "Giám sát liên tục 8 thông số chất lượng nước thải 24/7"
+  - "Cảnh báo tức thì qua Zalo/email khi thông số vượt ngưỡng QCVN"
+  - "Giảm 90% thời gian lập báo cáo môi trường định kỳ"
+  - "Phát hiện sự cố xả trái phép vào đêm khuya — tránh vi phạm nghiêm trọng"
+  - "Tuân thủ QCVN 40:2011/BTNMT liên tục trong 12 tháng vận hành"
 draft: false
 ---
 ## Bối cảnh dự án
