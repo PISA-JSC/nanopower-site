@@ -1,4 +1,4 @@
----
+﻿---
 import Base from '../../layouts/Base.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import SolutionCard from '../../components/SolutionCard.astro';
@@ -15,7 +15,7 @@ const solutions = (await getCollection('solutions', s => !s.data.draft))
   title="Giải pháp"
   description="Nano Power cung cấp giải pháp toàn diện: tự động hóa công nghiệp, phần mềm, phần cứng, điện và nước."
 >
-  <div class="bg-brand-50 border-b border-brand-100">
+  <div style="background: #050d1c; padding-top: 80px; border-bottom: 1px solid rgba(255,255,255,0.07);" class="text-[rgba(220,235,255,0.55)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
       <Breadcrumb items={[
         { label: 'Trang chủ', href: url('/') },
@@ -24,10 +24,10 @@ const solutions = (await getCollection('solutions', s => !s.data.draft))
     </div>
   </div>
 
-  <section class="bg-brand-800 text-white py-16">
+  <section class="text-white py-16" style="background: linear-gradient(160deg,#050d1c,#08152b);">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="font-serif text-4xl sm:text-5xl font-bold mb-4">Lĩnh vực giải pháp</h1>
-      <p class="text-brand-100 text-xl leading-relaxed">
+      <p class="text-xl" style="color: rgba(220,235,255,0.75);" leading-relaxed">
         Từ phần cứng đến phần mềm, từ tự động hóa đến hạ tầng kỹ thuật — Nano Power cung cấp đầy đủ nền tảng công nghệ cho doanh nghiệp.
       </p>
     </div>

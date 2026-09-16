@@ -7,89 +7,92 @@ const { title, subtitle, cta_label, cta_url, secondary_cta_label, secondary_cta_
 const { stats } = home;
 ---
 
-<section class="relative bg-canvas text-white overflow-hidden">
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-    <div class="grid lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_500px] gap-10 xl:gap-16 items-center">
+<section class="relative text-white overflow-hidden" style="padding: 170px 0 90px; background: radial-gradient(1200px 600px at 78% 8%, rgba(0,170,255,0.22), transparent 60%), radial-gradient(900px 500px at 8% 90%, rgba(22,104,227,0.28), transparent 62%), linear-gradient(160deg, #050d1c, #08152b 55%, #0a2035);">
+  <!-- Subtle grid overlay -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true" style="background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 58px 58px; mask-image: radial-gradient(circle at 50% 40%, #000 10%, transparent 78%); -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 10%, transparent 78%);"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-[1.08fr_0.92fr] gap-14 items-center">
 
       <!-- ── Left: content ───────────────────────────────────── -->
-      <div class="relative z-10">
-        <p class="text-brand-500 text-[0.6875rem] font-bold uppercase tracking-[0.18em] mb-6">
+      <div class="relative">
+        <p class="eyebrow light mb-6">
           Tự động hóa · Phần mềm · IoT
         </p>
 
-        <h1 class="text-[3rem] sm:text-[3.75rem] lg:text-[4.25rem] xl:text-[4.75rem] font-bold text-white leading-[1.02] tracking-[-0.04em] mb-6">
-          {title}
+        <h1 class="font-extrabold leading-[1.12] tracking-[-0.03em] mb-6"
+            style="font-size: clamp(2.1rem, 4.9vw, 3.6rem); font-weight: 800;">
+          <span style="background: linear-gradient(110deg, #5ce6ff, #3b8bff 60%, #9fd0ff); -webkit-background-clip: text; background-clip: text; color: transparent;">{title}</span>
         </h1>
 
-        <p class="text-slate-400 text-lg leading-relaxed mb-10 max-w-lg">
+        <p class="mb-10 max-w-lg" style="color: rgba(233,242,255,0.82); font-size: 1.1rem; line-height: 1.65;">
           {subtitle}
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-3 mb-12">
-          <a
-            href={url(cta_url)}
-            class="inline-flex items-center justify-center gap-2 bg-brand-700 hover:bg-brand-600 active:scale-[0.98] text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-150 text-sm"
-          >
+        <div class="flex flex-col sm:flex-row gap-4 mb-12">
+          <a href={url(cta_url)} class="btn btn-primary">
             {cta_label}
             <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </a>
-          <a
-            href={url(secondary_cta_url)}
-            class="inline-flex items-center justify-center gap-2 bg-white/[0.06] hover:bg-white/[0.10] border border-white/[0.12] text-white font-medium px-7 py-3.5 rounded-xl transition-colors duration-150 text-sm"
-          >
+          <a href={url(secondary_cta_url)} class="btn btn-ghost">
             {secondary_cta_label}
           </a>
         </div>
 
         <!-- Trust bar — 3 stats inline -->
-        <div class="flex flex-wrap items-center gap-x-8 gap-y-3 pt-8 border-t border-white/[0.08]">
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-3 pt-8" style="border-top: 1px solid rgba(255,255,255,0.08);">
           {stats.slice(0, 3).map(s => (
             <div>
-              <span class="font-bold text-white text-xl">{s.value}{s.suffix} </span>
-              <span class="text-slate-500 text-sm">{s.label.toLowerCase()}</span>
+              <span class="font-extrabold text-white text-xl" style="letter-spacing: -0.03em;">
+                {s.value}<span style="background: linear-gradient(115deg, #1668e3, #00d4ff); -webkit-background-clip: text; background-clip: text; color: transparent;">{s.suffix}</span>
+              </span>
+              <span class="block text-sm" style="color: rgba(220,235,255,0.55);">{s.label}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <!-- ── Right: real factory photo ──────────────────────── -->
+      <!-- ── Right: factory photo with glassmorphism chips ──── -->
       <div class="hidden lg:block relative">
-        <!-- Photo frame with subtle green glow ring -->
-        <div class="relative rounded-[1.25rem] overflow-hidden aspect-[4/3] shadow-[0_0_80px_rgba(41,194,44,0.15)] ring-1 ring-white/10">
+        <div class="relative rounded-[1.5rem] overflow-hidden" style="border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 30px 70px -30px rgba(6,22,51,0.55);">
           <img
             src={url('/images/hero-banner-tu-dong-hoa.jpg')}
             alt="Hệ thống tự động hóa nhà máy hiện đại"
-            class="w-full h-full object-cover"
+            class="w-full object-cover"
+            style="height: 440px;"
             width="900"
             height="675"
             loading="eager"
             fetchpriority="high"
           />
-          <!-- Bottom gradient for chip readability -->
-          <div class="absolute inset-0 bg-gradient-to-t from-canvas/55 via-canvas/10 to-transparent pointer-events-none"></div>
+          <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 40%, rgba(5,13,28,0.68));"></div>
 
-          <!-- Metric chip — top right -->
-          <div class="absolute top-4 right-4 bg-canvas/75 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-center min-w-[88px]">
-            <div class="text-[1.5rem] font-bold text-white leading-none tabular-nums">
-              {stats[1]?.value}<span class="text-brand-500 text-lg">{stats[1]?.suffix}</span>
+          <!-- Badge top left -->
+          <div class="absolute top-5 left-5 flex items-center gap-3 rounded-2xl px-4 py-3"
+               style="background: rgba(9,24,45,0.86); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.09);">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-[#04121f]"
+                 style="background: linear-gradient(135deg, #1668e3, #00d4ff);">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
-            <div class="text-[0.625rem] text-slate-400 mt-1 font-medium tracking-wide uppercase">{stats[1]?.label}</div>
+            <div>
+              <b class="block text-white text-[1.1rem] leading-tight">{stats[1]?.value}{stats[1]?.suffix}</b>
+              <small style="color: rgba(220,235,255,0.7); font-size: 0.72rem;">{stats[1]?.label}</small>
+            </div>
           </div>
 
-          <!-- Metric chip — bottom left -->
-          <div class="absolute bottom-4 left-4 bg-canvas/75 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-center min-w-[100px]">
-            <div class="text-[1.5rem] font-bold text-white leading-none tabular-nums">
-              {stats[5]?.value}<span class="text-brand-500 text-lg">{stats[5]?.suffix}</span>
+          <!-- Badge bottom right -->
+          <div class="absolute bottom-5 right-5 flex items-center gap-3 rounded-2xl px-4 py-3"
+               style="background: rgba(9,24,45,0.86); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.09);">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-[#04121f]"
+                 style="background: linear-gradient(135deg, #1668e3, #00d4ff);">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
-            <div class="text-[0.625rem] text-slate-400 mt-1 font-medium tracking-wide uppercase">{stats[5]?.label}</div>
-          </div>
-
-          <!-- Online indicator — bottom right -->
-          <div class="absolute bottom-4 right-4 bg-canvas/75 backdrop-blur-md border border-white/10 rounded-lg px-3 py-2 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse shrink-0"></span>
-            <span class="text-[0.6875rem] text-slate-300 font-medium">Hệ thống trực tuyến</span>
+            <div>
+              <b class="block text-white text-[1.1rem] leading-tight">{stats[5]?.value}{stats[5]?.suffix}</b>
+              <small style="color: rgba(220,235,255,0.7); font-size: 0.72rem;">{stats[5]?.label}</small>
+            </div>
           </div>
         </div>
       </div>

@@ -19,42 +19,25 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative bg-canvas overflow-hidden py-24">
-  <!-- Very subtle hex pattern in background -->
-  <div class="absolute inset-0 pointer-events-none select-none" style="opacity:0.04" aria-hidden="true">
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern id="cta-hex" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
-          <polygon points="30,2 58,16 58,44 30,58 2,44 2,16" fill="none" stroke="white" stroke-width="1"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#cta-hex)"/>
-    </svg>
-  </div>
-  <!-- Green glow left -->
-  <div class="absolute -left-32 top-1/2 -translate-y-1/2 w-80 h-80 bg-brand-700/25 rounded-full blur-[80px] pointer-events-none" aria-hidden="true"></div>
+<section class="relative overflow-hidden text-white" style="padding: clamp(64px,8vw,110px) 0; background: radial-gradient(900px 500px at 15% 10%, rgba(22,104,227,0.3), transparent 60%), linear-gradient(150deg, #08152b, #050d1c);">
+  <!-- Subtle grid -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true" style="background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 58px 58px;"></div>
 
   <div class="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-[-0.03em] leading-tight mb-5">
+    <h2 class="font-extrabold text-white leading-tight mb-5" style="font-size: clamp(1.75rem,3.6vw,2.7rem); letter-spacing: -0.02em;">
       {title}
     </h2>
-    <p class="text-slate-400 text-lg leading-relaxed mb-10">
+    <p class="text-lg leading-relaxed mb-10" style="color: rgba(220,235,255,0.72);">
       {subtitle}
     </p>
-    <div class="flex flex-col sm:flex-row gap-3 justify-center">
-      <a
-        href={url(primaryHref)}
-        class="inline-flex items-center justify-center gap-2 bg-brand-700 hover:bg-brand-600 active:scale-[0.98] text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-150 text-sm"
-      >
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href={url(primaryHref)} class="btn btn-primary">
         {primaryLabel}
         <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
         </svg>
       </a>
-      <a
-        href={url(secondaryHref)}
-        class="inline-flex items-center justify-center gap-2 bg-white/[0.06] hover:bg-white/[0.10] border border-white/[0.12] text-white font-medium px-7 py-3.5 rounded-xl transition-colors duration-150 text-sm"
-      >
+      <a href={url(secondaryHref)} class="btn btn-ghost">
         {secondaryLabel}
       </a>
     </div>

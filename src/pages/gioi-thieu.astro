@@ -1,4 +1,4 @@
----
+﻿---
 import Base from '../layouts/Base.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import CTABand from '../components/CTABand.astro';
@@ -14,7 +14,7 @@ const site = loadYaml<SiteData>('site.yml');
   description={`Tìm hiểu về ${site.company_name} — đội ngũ, lịch sử và sứ mệnh phát triển công nghệ tự động hóa.`}
 >
   <!-- Breadcrumb -->
-  <div class="bg-brand-50 border-b border-brand-100">
+  <div style="background: #050d1c; padding-top: 80px; border-bottom: 1px solid rgba(255,255,255,0.07);" class="text-[rgba(220,235,255,0.55)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
       <Breadcrumb items={[
         { label: 'Trang chủ', href: url('/') },
@@ -24,10 +24,10 @@ const site = loadYaml<SiteData>('site.yml');
   </div>
 
   <!-- Page hero -->
-  <section class="bg-brand-800 text-white py-20">
+  <section class="text-white py-20" style="background: linear-gradient(160deg,#050d1c,#08152b);">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="font-serif text-4xl sm:text-5xl font-bold mb-4">Về Nano Power</h1>
-      <p class="text-brand-100 text-xl leading-relaxed">
+      <p class="text-xl" style="color: rgba(220,235,255,0.75);" leading-relaxed">
         Đồng hành cùng doanh nghiệp trên hành trình chuyển đổi số và tự động hóa
       </p>
     </div>

@@ -1,4 +1,4 @@
----
+﻿---
 import Base from '../layouts/Base.astro';
 import { url } from '../utils/url';
 ---
@@ -32,7 +32,7 @@ import { url } from '../utils/url';
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href={url('/')}
-          class="inline-flex items-center justify-center gap-2 bg-brand-700 hover:bg-brand-600 text-white font-semibold px-8 py-4 rounded-lg transition-colors"
+          class="inline-flex items-center justify-center gap-2 text-[#04121f] font-bold" style="background: linear-gradient(120deg,#1668e3,#00d4ff);" class=" px-8 py-4 rounded-lg transition-colors"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
@@ -41,7 +41,7 @@ import { url } from '../utils/url';
         </a>
         <a
           href={url('/lien-he')}
-          class="inline-flex items-center justify-center gap-2 border-2 border-brand-700 text-brand-700 hover:bg-brand-700 hover:text-white font-semibold px-8 py-4 rounded-lg transition-colors"
+          class="inline-flex items-center justify-center gap-2 border-2 font-semibold" style="border-color:#1668e3; color:#1668e3;" onmouseover="this.style.background='#1668e3';this.style.color='#04121f';" onmouseout="this.style.background='';this.style.color='#1668e3'" class=" px-8 py-4 rounded-lg transition-colors"
         >
           Liên hệ hỗ trợ
         </a>

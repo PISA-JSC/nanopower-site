@@ -35,8 +35,10 @@ if (totalPages <= 7) {
     {currentPage > 1 ? (
       <a
         href={getPageUrl(currentPage - 1)}
-        class="flex items-center gap-1 px-4 py-2 rounded-lg border border-gray-200 text-ink hover:bg-brand-50 hover:border-brand-300 hover:text-brand-700 transition-colors text-sm font-medium"
-        aria-label="Trang trước"
+        class="flex items-center gap-1 px-4 py-2 rounded-lg border text-ink transition-colors text-sm font-medium"
+        style="border-color: #e5e7eb;"
+        onmouseover="this.style.borderColor='#1668e3'; this.style.color='#1668e3';"
+        onmouseout="this.style.borderColor='#e5e7eb'; this.style.color='';"
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -60,9 +62,10 @@ if (totalPages <= 7) {
             href={getPageUrl(p as number)}
             class={`w-9 h-9 flex items-center justify-center rounded-lg text-sm font-medium transition-colors ${
               p === currentPage
-                ? 'bg-brand-700 text-white'
-                : 'text-ink hover:bg-brand-50 hover:text-brand-700 border border-gray-200 hover:border-brand-300'
+                ? 'text-white'
+                : 'text-ink border border-gray-200'
             }`}
+            style={p === currentPage ? 'background: linear-gradient(120deg, #1668e3, #00d4ff); color: #04121f;' : ''}
             aria-current={p === currentPage ? 'page' : undefined}
           >
             {p}
@@ -73,7 +76,10 @@ if (totalPages <= 7) {
     {currentPage < totalPages ? (
       <a
         href={getPageUrl(currentPage + 1)}
-        class="flex items-center gap-1 px-4 py-2 rounded-lg border border-gray-200 text-ink hover:bg-brand-50 hover:border-brand-300 hover:text-brand-700 transition-colors text-sm font-medium"
+        class="flex items-center gap-1 px-4 py-2 rounded-lg border text-ink transition-colors text-sm font-medium"
+        style="border-color: #e5e7eb;"
+        onmouseover="this.style.borderColor='#1668e3'; this.style.color='#1668e3';"
+        onmouseout="this.style.borderColor='#e5e7eb'; this.style.color='';"
         aria-label="Trang sau"
       >
         Sau

@@ -1,4 +1,4 @@
----
+﻿---
 import Base from '../../layouts/Base.astro';
 import PostCard from '../../components/PostCard.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
@@ -23,7 +23,7 @@ const categories = ['tin-cong-ty', 'kien-thuc', 'san-pham', 'tuyen-dung'] as con
   title="Tin tức & Kiến thức"
   description="Cập nhật tin tức công ty và kiến thức chuyên sâu về tự động hóa, IoT, điện và xử lý nước từ Nano Power."
 >
-  <div class="bg-brand-50 border-b border-brand-100">
+  <div style="background: #050d1c; padding-top: 80px; border-bottom: 1px solid rgba(255,255,255,0.07);" class="text-[rgba(220,235,255,0.55)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
       <Breadcrumb items={[
         { label: 'Trang chủ', href: url('/') },
@@ -32,10 +32,10 @@ const categories = ['tin-cong-ty', 'kien-thuc', 'san-pham', 'tuyen-dung'] as con
     </div>
   </div>
 
-  <section class="bg-brand-800 text-white py-16">
+  <section class="text-white py-16" style="background: linear-gradient(160deg,#050d1c,#08152b);">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="font-serif text-4xl sm:text-5xl font-bold mb-4">Tin tức & Kiến thức</h1>
-      <p class="text-brand-100 text-xl leading-relaxed">
+      <p class="text-xl" style="color: rgba(220,235,255,0.75);" leading-relaxed">
         Chia sẻ kiến thức chuyên môn và cập nhật xu hướng công nghệ từ đội ngũ Nano Power.
       </p>
     </div>
@@ -47,14 +47,14 @@ const categories = ['tin-cong-ty', 'kien-thuc', 'san-pham', 'tuyen-dung'] as con
       <div class="flex gap-1 overflow-x-auto scrollbar-none py-3">
         <a
           href={url('/tin-tuc')}
-          class="shrink-0 px-4 py-2 rounded-lg text-sm font-medium bg-brand-700 text-white"
+          class="shrink-0 px-4 py-2 rounded-full text-sm font-bold text-[#04121f]" style="background: linear-gradient(120deg,#1668e3,#00d4ff);"
         >
           Tất cả
         </a>
         {categories.map(cat => (
           <a
             href={url(`/tin-tuc?category=${cat}`)}
-            class="shrink-0 px-4 py-2 rounded-lg text-sm font-medium text-ink hover:bg-brand-50 hover:text-brand-700 transition-colors border border-gray-200"
+            class="shrink-0 px-4 py-2 rounded-full text-sm font-medium text-ink hover:border-[#1668e3] hover:text-[#1668e3] transition-colors border border-gray-200"
           >
             {categoryLabels[cat]}
           </a>

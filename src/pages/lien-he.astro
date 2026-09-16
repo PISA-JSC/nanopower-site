@@ -1,4 +1,4 @@
----
+﻿---
 import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import { url } from '../utils/url';
@@ -12,7 +12,7 @@ const formAction = `mailto:${site.email}`;
   title="Liên hệ"
   description={`Liên hệ với ${site.company_name} để được tư vấn giải pháp công nghệ phù hợp.`}
 >
-  <div class="bg-brand-50 border-b border-brand-100">
+  <div style="background: #050d1c; padding-top: 80px; border-bottom: 1px solid rgba(255,255,255,0.07);" class="text-[rgba(220,235,255,0.55)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
       <Breadcrumb items={[
         { label: 'Trang chủ', href: url('/') },
@@ -21,10 +21,10 @@ const formAction = `mailto:${site.email}`;
     </div>
   </div>
 
-  <section class="bg-brand-800 text-white py-16">
+  <section class="text-white py-16" style="background: linear-gradient(160deg,#050d1c,#08152b);">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="font-serif text-4xl sm:text-5xl font-bold mb-4">Liên hệ với chúng tôi</h1>
-      <p class="text-brand-100 text-xl leading-relaxed">
+      <p class="text-xl" style="color: rgba(220,235,255,0.75);" leading-relaxed">
         Chúng tôi luôn sẵn sàng lắng nghe và tư vấn giải pháp phù hợp nhất cho doanh nghiệp của bạn.
       </p>
     </div>
@@ -139,7 +139,7 @@ const formAction = `mailto:${site.email}`;
 
             <button
               type="submit"
-              class="w-full bg-brand-700 hover:bg-brand-600 text-white font-semibold py-4 rounded-lg transition-colors text-sm"
+              class="w-full text-[#04121f] font-bold" style="background: linear-gradient(120deg,#1668e3,#00d4ff);" class=" py-4 rounded-lg transition-colors text-sm"
             >
               Gửi yêu cầu tư vấn
             </button>

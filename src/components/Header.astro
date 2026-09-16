@@ -15,39 +15,39 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<!-- ── Sticky header ─────────────────────────────────────────── -->
+<!-- ── Fixed transparent → dark-blur header ──────────────────── -->
 <header
   id="site-header"
-  class="sticky top-0 z-50 bg-white border-b border-slate-200 transition-shadow duration-200"
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+  style="padding: 16px 0;"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 md:h-[72px]">
+    <div class="flex items-center justify-between">
 
       <!-- Logo -->
-      <a href={url('/')} class="flex items-center gap-2.5 shrink-0 group min-w-[44px] min-h-[44px]" aria-label="Nano Power — Trang chủ">
+      <a href={url('/')} class="flex items-center gap-3 shrink-0 group" aria-label="Nano Power — Trang chủ">
         <img
           src={url('/logo.png')}
-          alt=""
+          alt="Nano Power"
           class="h-9 w-9 object-contain"
           width="36"
           height="36"
         />
-        <span class="font-bold text-[1.0625rem] text-ink tracking-tight group-hover:text-brand-700 transition-colors">
-          Nano Power
-        </span>
+        <div>
+          <strong class="block text-[1.05rem] font-extrabold tracking-wide text-white leading-tight">Nano Power</strong>
+          <span class="block text-[0.6rem] tracking-[0.22em] uppercase text-[#5ce6ff] font-semibold">Automation · Software · IoT</span>
+        </div>
       </a>
 
       <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-0.5" aria-label="Điều hướng chính">
+      <nav class="hidden md:flex items-center gap-8" aria-label="Điều hướng chính">
         {navLinks.map(link => {
           const active = currentPath.startsWith(link.href.replace(/\/$/, ''));
           return (
             <a
               href={link.href}
-              class={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-150 ${
-                active
-                  ? 'text-brand-700 bg-brand-50'
-                  : 'text-slate-600 hover:text-ink hover:bg-slate-50'
+              class={`text-sm font-medium relative pb-1.5 transition-colors duration-200 nav-link ${
+                active ? 'text-white nav-link-active' : 'text-white/80 hover:text-white'
               }`}
             >
               {link.label}
@@ -57,17 +57,19 @@ const currentPath = Astro.url.pathname;
       </nav>
 
       <!-- CTA + hamburger -->
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-3">
         <a
           href={url('/lien-he')}
-          class="hidden sm:inline-flex items-center gap-1.5 bg-brand-700 hover:bg-brand-800 active:bg-brand-800 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors duration-150"
+          class="hidden sm:inline-flex items-center gap-2 btn btn-primary text-sm px-5 py-2.5"
+          style="padding: 10px 22px; font-size: 0.9rem;"
         >
-          Liên hệ
+          Nhận tư vấn
         </a>
 
         <button
           id="mobile-menu-btn"
-          class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+          class="md:hidden w-11 h-11 flex items-center justify-center rounded-xl text-white"
+          style="border: 1px solid rgba(255,255,255,0.18);"
           aria-label="Mở menu điều hướng"
           aria-expanded="false"
           aria-controls="mobile-menu"
@@ -81,23 +83,44 @@ const currentPath = Astro.url.pathname;
   </div>
 </header>
 
+<style>
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0; height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #1668e3, #00d4ff);
+    transition: width 0.3s cubic-bezier(0.22,1,0.36,1);
+  }
+  .nav-link:hover::after,
+  .nav-link-active::after { width: 100%; }
+</style>
+
 <!-- ── Full-screen mobile overlay ───────────────────────────── -->
 <div
   id="mobile-menu"
-  class="fixed inset-0 z-[60] hidden bg-white flex flex-col"
+  class="fixed inset-0 z-[60] hidden flex-col"
+  style="background: rgba(5,13,28,0.97); backdrop-filter: blur(14px);"
   role="dialog"
   aria-modal="true"
   aria-label="Menu điều hướng"
 >
   <!-- Top bar -->
-  <div class="flex items-center justify-between px-4 h-16 border-b border-slate-100">
+  <div class="flex items-center justify-between px-4 h-16" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
     <a href={url('/')} class="flex items-center gap-2.5" aria-label="Nano Power">
-      <img src={url('/logo.png')} alt="" class="h-9 w-9" width="36" height="36" />
-      <span class="font-bold text-[1.0625rem] text-ink">Nano Power</span>
+      <div class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-base"
+           style="background: linear-gradient(135deg,#1668e3,#00d4ff); color:#04121f;">
+        <img src={url('/logo.png')} alt="" class="h-7 w-7 object-contain brightness-0 invert" width="28" height="28" />
+      </div>
+      <span class="font-bold text-[1.0625rem] text-white">Nano Power</span>
     </a>
     <button
       id="mobile-close-btn"
-      class="w-10 h-10 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 transition-colors"
+      class="w-10 h-10 flex items-center justify-center rounded-xl text-white/70 hover:text-white transition-colors"
+      style="border: 1px solid rgba(255,255,255,0.12);"
+      aria-label="Đóng menu"
+    >
       aria-label="Đóng menu"
     >
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -111,7 +134,8 @@ const currentPath = Astro.url.pathname;
     {navLinks.map(link => (
       <a
         href={link.href}
-        class="flex items-center h-14 px-4 rounded-xl text-base font-medium text-ink hover:bg-slate-50 transition-colors"
+        class="flex items-center h-14 px-4 rounded-xl text-base font-medium text-white/80 hover:text-white transition-colors"
+        style="border: 1px solid transparent;"
       >
         {link.label}
       </a>
@@ -119,10 +143,11 @@ const currentPath = Astro.url.pathname;
   </nav>
 
   <!-- Bottom CTA -->
-  <div class="px-4 pb-10 pt-4 border-t border-slate-100">
+  <div class="px-4 pb-10 pt-4" style="border-top: 1px solid rgba(255,255,255,0.08);">
     <a
       href={url('/lien-he')}
-      class="flex items-center justify-center h-14 w-full bg-brand-700 hover:bg-brand-800 text-white font-semibold rounded-xl transition-colors text-base"
+      class="btn btn-primary flex items-center justify-center w-full text-base"
+      style="border-radius: 14px; height: 56px;"
     >
       Liên hệ ngay
     </a>
@@ -156,8 +181,13 @@ const currentPath = Astro.url.pathname;
     if (e.key === 'Escape' && !menuEl.classList.contains('hidden')) closeMenu();
   });
 
-  // Subtle shadow when page scrolls
+  // Dark blur when page scrolls
   window.addEventListener('scroll', () => {
-    headerEl.classList.toggle('shadow-sm', window.scrollY > 8);
+    const scrolled = window.scrollY > 20;
+    headerEl.style.background = scrolled ? 'rgba(6,15,30,0.92)' : 'transparent';
+    headerEl.style.backdropFilter = scrolled ? 'blur(14px)' : 'none';
+    headerEl.style.boxShadow = scrolled ? '0 10px 34px -18px rgba(0,0,0,0.8)' : 'none';
+    headerEl.style.borderBottom = scrolled ? '1px solid rgba(255,255,255,0.07)' : 'none';
+    headerEl.style.padding = scrolled ? '10px 0' : '16px 0';
   }, { passive: true });
 </script>
